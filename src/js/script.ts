@@ -21,6 +21,7 @@ class Star {
     size: number;
     speed: number;
     direction: number;
+    // color: number; // This will be utilized for create varying colors instead of being boringggggg
 
 
     constructor() {
