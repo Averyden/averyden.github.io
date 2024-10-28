@@ -66,7 +66,7 @@ class Star {
     }
 }
 
-const stars: Star[] = Array.from({length: 100}, () => new Star()) // * Create the instance of stars inside a star var.
+const stars: Star[] = Array.from({length: 500}, () => new Star()) // * Create the instance of stars inside a star var.
 
 function animate(): void {
     ctx.clearRect(0,0, cv, ch)
