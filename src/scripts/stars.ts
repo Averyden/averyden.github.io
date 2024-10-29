@@ -76,7 +76,9 @@ class Star {
             this.reset()
         }
 
-        this.fadeColor()
+        if (Math.random() < 0.1) { //! COOLDOWN SO PERFORMANCE DOESNT DIE
+            this.fadeColor()
+        }
 
     }
 
