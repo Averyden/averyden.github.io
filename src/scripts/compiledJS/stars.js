@@ -45,7 +45,7 @@ class Star {
         if (this.x < 0 || this.x > cv || this.y < 0 || this.y > ch) {
             this.reset();
         }
-        if (Math.random() < 0.1) { //! COOLDOWN SO PERFORMANCE DOESNT DIE
+        if (Math.random() < 0.05) { //! COOLDOWN SO PERFORMANCE DOESNT DIE
             this.fadeColor();
         }
     }
@@ -81,7 +81,7 @@ class Star {
         ctx.fill();
     }
 }
-const stars = Array.from({ length: 250 }, () => new Star()); // * Create the instance of stars inside a star var.
+const stars = Array.from({ length: 350 }, () => new Star()); // * Create the instance of stars inside a star var.
 function animate() {
     ctx.clearRect(0, 0, cv, ch);
     stars.forEach((star) => {
