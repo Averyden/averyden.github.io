@@ -80,7 +80,7 @@ class Star {
     assignColor(): void { //* Override the default colors for the string variants.
         switch(this.color) {
             case "pink":
-                this.color = "rgb(245, 126, 182)"
+                this.color = "rgb(255, 150, 200)"
                 break
             case "purple":
                 this.color = "rgb(189, 64, 189)" //? Maybe make it a brighter color?
