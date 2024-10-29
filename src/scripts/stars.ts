@@ -10,11 +10,6 @@ const ch = canvas.height
 const cv = canvas.width
 
 
-function getRandomInt(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
 
 //* we create a star class, which includes all the information and functions needed for the stars to be created and move around.
 
@@ -70,6 +65,7 @@ class Star {
         ctx.fillStyle = "white"; //TODO: Find out how to make it range between white, light pink and a slight purple.
         //TODO: it should like fade between the colors, because the way it works now is just constantly shifting in color, per frame update.
         ctx.fill()
+        
     }
 }
 
