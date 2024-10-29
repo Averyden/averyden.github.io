@@ -34,6 +34,7 @@ class Star {
 
         //* Assign colors
         this.color = this.getRanCol()
+        this.assignColor()
     }
 
     getRanCol(): string {
@@ -55,6 +56,7 @@ class Star {
         this.direction = Math.random() * Math.PI * 2
 
         this.color = this.getRanCol()
+        this.assignColor()
     }
 
     //* This will update the stars, yippee
@@ -75,7 +77,7 @@ class Star {
     TODO: although this could result in weird colors like green EWWWW.
 
     */
-    assignColor(): void {
+    assignColor(): void { //* Override the default colors for the string variants.
         switch(this.color) {
             case "pink":
                 this.color = "rgb(245, 126, 182)"
