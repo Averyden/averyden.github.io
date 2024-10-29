@@ -81,11 +81,13 @@ class Star {
         switch(this.color) {
             case "pink":
                 this.color = "rgb(245, 126, 182)"
+                break
             case "purple":
                 this.color = "rgb(189, 64, 189)" //? Maybe make it a brighter color?
-                console.log("IM PURPLEEE")
+                break
             default:
                 this.color = "rgb(255,255,255)"
+                break
         }
     }
 
