@@ -51,7 +51,7 @@ class Star {
         this.y = Math.random() * ch
 
         this.size = Math.random() * 1.5+0.5
-        this.speed = Math.random() * 0.5+0.2
+        this.speed = Math.random() * 0.3
 
         this.direction = Math.random() * Math.PI * 2
 
@@ -83,7 +83,7 @@ class Star {
                 this.color = "rgb(255, 150, 200)"
                 break
             case "purple":
-                this.color = "rgb(189, 64, 189)" //? Maybe make it a brighter color?
+                this.color = "rgb(194, 110, 194)" 
                 break
             default:
                 this.color = "rgb(255,255,255)"
