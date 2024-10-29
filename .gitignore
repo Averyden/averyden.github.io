@@ -1,4 +1,4 @@
 node_modules/
 package-lock.json
 package.json
-src/js/script.js
+src/scripts/script.js
