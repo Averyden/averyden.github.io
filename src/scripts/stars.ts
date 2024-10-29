@@ -61,6 +61,10 @@ class Star {
         this.speed = Math.random() * 0.5+0.2
 
         this.direction = Math.random() * Math.PI * 2
+
+        this.color = this.getRanCol()
+        this.currentCol = "white"
+        this.targetCol = this.color
     }
 
     //* This will update the stars, yippee
