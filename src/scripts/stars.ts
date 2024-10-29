@@ -87,6 +87,23 @@ class Star {
         } else {
             targetRBG = [255,255,255] //* Stars selected as white will just not change color.
         }
+
+        const currentRGB = this.getRGBCode(this.currentCol)
+        const newColor = currentRGB.map((c, i) => {
+            return Math.min(c+(targetRBG[i]-c) * this.fadeAmt, 255)
+        })
+
+        this.currentCol = `rgb(${newColor[0]}, ${newColor[1]}, ${newColor[2]})`
+
+    }
+
+    getRGBCode(color: string): number[] {
+        const tempCan = document.createElement("canvas")
+        const tempCTX = tempCan.getContext("2d")!
+        tempCTX.fillStyle = color
+        tempCTX.fillRect(0,0,1,1)
+        const data = tempCTX.getImageData(0,0,1,1).data
+        return [data[0], data[1], data[2]]
     }
 
     draw(): void {
@@ -94,8 +111,7 @@ class Star {
         chance = Math.random
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fillStyle = "white"; //TODO: Find out how to make it range between white, light pink and a slight purple.
-        //TODO: it should like fade between the colors, because the way it works now is just constantly shifting in color, per frame update.
+        ctx.fillStyle = this.currentCol
         ctx.fill()
         
     }
