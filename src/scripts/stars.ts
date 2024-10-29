@@ -21,27 +21,19 @@ class Star {
     speed: number;
     direction: number;
 
-    //* These are for color configuration as it is running.
     color: string;
-    fadeAmt: number;
-    currentCol: string;
-    targetCol: string;
-
 
     constructor() {
         this.x = Math.random() * cv
         this.y = Math.random() * ch
 
         this.size = Math.random() * 1.5+0.5
-        this.speed = Math.random() * 0.5+0.2
+        this.speed = Math.random() * 0.3
 
         this.direction = Math.random() * Math.PI * 2
 
         //* Assign colors
         this.color = this.getRanCol()
-        this.currentCol = "white"; 
-        this.targetCol = this.color;
-        this.fadeAmt = 0.02 // * The speed for the fading
     }
 
     getRanCol(): string {
@@ -63,8 +55,6 @@ class Star {
         this.direction = Math.random() * Math.PI * 2
 
         this.color = this.getRanCol()
-        this.currentCol = "white"
-        this.targetCol = this.color
     }
 
     //* This will update the stars, yippee
@@ -76,10 +66,6 @@ class Star {
             this.reset()
         }
 
-        if (Math.random() < 0.05) { //! COOLDOWN SO PERFORMANCE DOESNT DIE
-            this.fadeColor()
-        }
-
     }
 
 
@@ -89,23 +75,15 @@ class Star {
     TODO: although this could result in weird colors like green EWWWW.
 
     */
-    fadeColor(): void {
-        let targetRBG: [number, number, number];
-        if (this.targetCol === "pink") {
-            targetRBG = [245, 126, 182]
-        } else if (this.targetCol === "purple") {
-            targetRBG = [128,0,128]
-        } else {
-            targetRBG = [255,255,255] //* Stars selected as white will just not change color.
+    assignColor(): void {
+        switch(this.color) {
+            case "pink":
+                this.color = "rgb(245, 126, 182)"
+            case "purple":
+                this.color = "rgb(128, 0, 128)" //? Maybe make it a brighter color?
+            default:
+                this.color = "rgb(255,255,255)"
         }
-
-        const currentRGB = this.getRGBCode(this.currentCol)
-        const newColor = currentRGB.map((c, i) => {
-            return Math.min(c+(targetRBG[i]-c) * this.fadeAmt, 255)
-        })
-
-        this.currentCol = `rgb(${newColor[0]}, ${newColor[1]}, ${newColor[2]})`
-
     }
 
     getRGBCode(color: string): number[] {
@@ -120,7 +98,7 @@ class Star {
     draw(): void {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fillStyle = this.currentCol
+        ctx.fillStyle = this.color
         ctx.fill()
         
     }
