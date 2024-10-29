@@ -76,6 +76,8 @@ class Star {
             this.reset()
         }
 
+        this.fadeColor()
+
     }
 
     fadeColor(): void {
