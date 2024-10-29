@@ -13,13 +13,11 @@ class Star {
         this.x = Math.random() * cv;
         this.y = Math.random() * ch;
         this.size = Math.random() * 1.5 + 0.5;
-        this.speed = Math.random() * 0.5 + 0.2;
+        this.speed = Math.random() * 0.3;
         this.direction = Math.random() * Math.PI * 2;
         //* Assign colors
         this.color = this.getRanCol();
-        this.currentCol = "white";
-        this.targetCol = this.color;
-        this.fadeAmt = 0.02; // * The speed for the fading
+        this.assignColor();
     }
     getRanCol() {
         const colors = ["pink", "purple", "white"];
@@ -32,11 +30,10 @@ class Star {
         this.x = Math.random() * cv;
         this.y = Math.random() * ch;
         this.size = Math.random() * 1.5 + 0.5;
-        this.speed = Math.random() * 0.5 + 0.2;
+        this.speed = Math.random() * 0.3;
         this.direction = Math.random() * Math.PI * 2;
         this.color = this.getRanCol();
-        this.currentCol = "white";
-        this.targetCol = this.color;
+        this.assignColor();
     }
     //* This will update the stars, yippee
     update() {
@@ -45,39 +42,26 @@ class Star {
         if (this.x < 0 || this.x > cv || this.y < 0 || this.y > ch) {
             this.reset();
         }
-        if (Math.random() < 0.05) { //! COOLDOWN SO PERFORMANCE DOESNT DIE
-            this.fadeColor();
-        }
     }
-    fadeColor() {
-        let targetRBG;
-        if (this.targetCol === "pink") {
-            targetRBG = [245, 126, 182];
+    // TODO: make it assing a random color in the range of all these colors :D 
+    // This could result in weird colors tho....
+    assignColor() {
+        switch (this.color) {
+            case "pink":
+                this.color = "rgb(255, 150, 200)";
+                break;
+            case "purple":
+                this.color = "rgb(194, 110, 194)";
+                break;
+            default:
+                this.color = "rgb(255,255,255)";
+                break;
         }
-        else if (this.targetCol === "purple") {
-            targetRBG = [128, 0, 128];
-        }
-        else {
-            targetRBG = [255, 255, 255]; //* Stars selected as white will just not change color.
-        }
-        const currentRGB = this.getRGBCode(this.currentCol);
-        const newColor = currentRGB.map((c, i) => {
-            return Math.min(c + (targetRBG[i] - c) * this.fadeAmt, 255);
-        });
-        this.currentCol = `rgb(${newColor[0]}, ${newColor[1]}, ${newColor[2]})`;
-    }
-    getRGBCode(color) {
-        const tempCan = document.createElement("canvas");
-        const tempCTX = tempCan.getContext("2d");
-        tempCTX.fillStyle = color;
-        tempCTX.fillRect(0, 0, 1, 1);
-        const data = tempCTX.getImageData(0, 0, 1, 1).data;
-        return [data[0], data[1], data[2]];
     }
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.currentCol;
+        ctx.fillStyle = this.color;
         ctx.fill();
     }
 }
