@@ -9,10 +9,9 @@ canvas.height = window.innerHeight
 const ch = canvas.height
 const cv = canvas.width
 
-//* We define the interface which includes the properties for a singular star element.
 
 
-//* we now implement said interface
+//* we create a star class, which includes all the information and functions needed for the stars to be created and move around.
 
 class Star {
     //* Define vars
