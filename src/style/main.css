@@ -18,3 +18,9 @@ canvas  {
     height: 100vh;
 }
 
+h1 {
+    color: #fff; /* We will make this ranbow later */
+    display: block;
+    position: fixed;
+    
+}
