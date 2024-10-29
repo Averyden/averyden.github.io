@@ -80,20 +80,13 @@ class Star {
             case "pink":
                 this.color = "rgb(245, 126, 182)"
             case "purple":
-                this.color = "rgb(128, 0, 128)" //? Maybe make it a brighter color?
+                this.color = "rgb(189, 64, 189)" //? Maybe make it a brighter color?
+                console.log("IM PURPLEEE")
             default:
                 this.color = "rgb(255,255,255)"
         }
     }
 
-    getRGBCode(color: string): number[] {
-        const tempCan = document.createElement("canvas")
-        const tempCTX = tempCan.getContext("2d")!
-        tempCTX.fillStyle = color
-        tempCTX.fillRect(0,0,1,1)
-        const data = tempCTX.getImageData(0,0,1,1).data
-        return [data[0], data[1], data[2]]
-    }
 
     draw(): void {
         ctx.beginPath()
