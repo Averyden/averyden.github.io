@@ -78,6 +78,17 @@ class Star {
 
     }
 
+    fadeColor(): void {
+        let targetRBG: [number, number, number];
+        if (this.targetCol === "pink") {
+            targetRBG = [245, 126, 182]
+        } else if (this.targetCol === "purple") {
+            targetRBG = [128,0,128]
+        } else {
+            targetRBG = [255,255,255] //* Stars selected as white will just not change color.
+        }
+    }
+
     draw(): void {
         var chance // for the funny
         chance = Math.random
