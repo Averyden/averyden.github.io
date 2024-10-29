@@ -71,12 +71,8 @@ class Star {
     }
 
 
-    /* 
-    TODO: instead of it fading the colors
-    TODO: maybe just make it a weird Math.random within the range of these colors
-    TODO: although this could result in weird colors like green EWWWW.
-
-    */
+// TODO: make it assing a random color in the range of all these colors :D 
+// This could result in weird colors tho....
     assignColor(): void { //* Override the default colors for the string variants.
         switch(this.color) {
             case "pink":
