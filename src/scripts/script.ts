@@ -20,7 +20,6 @@ class Star {
     size: number;
     speed: number;
     direction: number;
-    // color: number; // This will be utilized for create varying colors instead of being boringggggg
 
 
     constructor() {
@@ -61,7 +60,7 @@ class Star {
     draw(): void {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "white"; //TODO: Find out how to make it range
         ctx.fill()
     }
 }
