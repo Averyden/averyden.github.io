@@ -38,10 +38,15 @@ class Star {
         this.direction = Math.random() * Math.PI * 2
 
         //* Assign colors
-        this.color = // * Call a method here.
+        this.color = this.getRanCol()
         this.currentCol = "white"; 
         this.targetCol = this.color;
         this.fadeAmt = 0.02 // * The speed for the fading
+    }
+
+    getRanCol(): string {
+        const colors = ["pink", "purple", "white"]
+        return colors[Math.floor(Math.random() * colors.length)]
     }
 
 
