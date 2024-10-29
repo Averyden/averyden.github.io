@@ -82,6 +82,13 @@ class Star {
 
     }
 
+
+    /* 
+    TODO: instead of it fading the colors
+    TODO: maybe just make it a weird Math.random within the range of these colors
+    TODO: although this could result in weird colors like green EWWWW.
+
+    */
     fadeColor(): void {
         let targetRBG: [number, number, number];
         if (this.targetCol === "pink") {
