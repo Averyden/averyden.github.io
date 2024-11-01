@@ -33,6 +33,17 @@ table {
     height: auto;
 }
 
+th,
+td {
+    border: 1px solid chartreuse;
+    padding: 8px 10px;
+  
+    height: auto;
+    text-align: center;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+
 .mainBox {
     color: chartreuse
 }
