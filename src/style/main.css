@@ -26,3 +26,8 @@ h1 {
 .mainBox {
     color: chartreuse
 }
+
+.smallMargin {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
