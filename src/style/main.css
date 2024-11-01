@@ -5,8 +5,19 @@
 }
 
 body {
-    overflow: hidden;
+    padding: 0;
     background-color: #000000;
+}
+
+html, body {
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 canvas  {
@@ -19,8 +30,53 @@ canvas  {
 }
 
 h1 {
-    color: #fff; /* We will make this ranbow later */
-    display: block;
-    position: fixed;
-    
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    table-layout: fixed;
+    overflow-x: hidden;
+    height: auto;
+}
+
+tr {
+    background: rgba(0,0,0,0.6);
+    height: auto;
+    width: 100vw;
+}
+
+th {
+    border: 1px solid chartreuse;
+    padding: 8px 10px;
+  
+    height: auto;
+    text-align: center;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+
+.mainBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+
+.chart {
+    color: chartreuse;
+}
+
+.smallMargin {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
