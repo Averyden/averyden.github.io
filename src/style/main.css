@@ -23,6 +23,16 @@ h1 {
     margin-bottom: 0px;
 }
 
+table {
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    table-layout: fixed;
+    overflow-x: hidden;
+    height: auto;
+}
+
 .mainBox {
     color: chartreuse
 }
