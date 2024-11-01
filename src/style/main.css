@@ -33,8 +33,7 @@ table {
     height: auto;
 }
 
-th,
-td {
+th {
     border: 1px solid chartreuse;
     padding: 8px 10px;
   
