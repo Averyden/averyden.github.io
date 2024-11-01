@@ -5,8 +5,19 @@
 }
 
 body {
+    padding: 0;
+    background-color: transparent;
+}
+
+html, body {
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    background-color: #000000;
 }
 
 canvas  {
