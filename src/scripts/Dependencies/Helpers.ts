@@ -22,3 +22,17 @@ function getRandomNotesuPreview() : INotesuPreview {
     return collectionOfPreviews[index]
 }
 
+function applySelectedNotesuPreview() : void {
+    const selectedImg = getRandomNotesuPreview()
+
+    const imgElem = document.getElementById("randomNotesuPreview") as HTMLImageElement
+    const capElem = document.getElementById("randomNotesuCaption")
+
+    if (imgElem && capElem) {
+        imgElem.src = selectedImg.src
+        capElem.textContent = selectedImg.caption
+    }
+}
+
+applySelectedNotesuPreview()
+
