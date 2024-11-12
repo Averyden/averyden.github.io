@@ -80,3 +80,11 @@ th {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+h2 {
+    font-size: 20px;
+}
+
+#infoTitle {
+    margin-top: 10px;
+}
