@@ -5,22 +5,113 @@
 }
 
 body {
-    overflow: hidden;
+    padding: 0;
     background-color: #000000;
 }
 
-canvas  {
+html, body {
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+canvas {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    pointer-events: none;
 }
 
 h1 {
-    color: #fff; /* We will make this ranbow later */
-    display: block;
-    position: fixed;
-    
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    table-layout: fixed;
+    overflow-x: hidden;
+    height: auto;
+}
+
+tr {
+    background: rgba(0,0,0,0.6);
+    height: auto;
+    width: 100vw;
+}
+
+th {
+    border: 1px solid chartreuse;
+    padding: 8px 10px;
+    height: auto;
+    text-align: center;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.mainBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.chart {
+    color: chartreuse;
+}
+
+.smallMargin {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+#infoTitle {
+    margin-top: 10px;
+}
+
+.subText {
+    color: #00ffc8;
+    display: flex;            
+    align-items: center;       
+    gap: 8px;                   
+    justify-content: center;
+}
+
+a {
+    color: #ff0095;
+}
+
+.extraInfo {
+    color: #00ffc8;
+    align-items: center;       
+    gap: 8px;                   
+    justify-content: center;
+}
+
+.projectPreview {
+    color: #919191;
+}
+
+.projectPreview img {
+    margin-top: 25px;
+    max-width: 500px;
 }
