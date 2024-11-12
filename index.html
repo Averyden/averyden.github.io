@@ -13,22 +13,93 @@
     
 </head>
 <body class="chart">
-    <canvas id="starfield"></canvas>
+    
+  
+    <canvas id="starfield" style="z-index: -10;"></canvas>
     <script src="/src/scripts/compiledJS/stars.js"></script>
 
-  
     <!-- Just adding this to test something out. -->
     <table class="mainBox">
         <tr>
             <th>
                 <div class="nav1" id="top">
-                    <h1 style="margin-top: 0; font-size: 42;"><b id="rainbow">Lorem Ipsum</b></h1>
-                    <p class="smallMargin"><b style="color: slateblue;">home</b></p>
-                    <p class="smallMargin"><b style="color: slateblue;">I shall add more boxes and stuff later on, for now this is all i can be bothered to do</b></p>
+                    <h1 style="margin-top: 0; font-size: 42;"><b id="rainbow">Averyden</b></h1>
+                    <p class="smallMargin" id="sub"><b style="color: slateblue;">Hallo!! ヾ(•ω•`)o</b></p>
+                    <p class="smallMargin"><b style="color: slateblue;">Welcome to my temporary portfolio while I work on the rest of the site. (～﹃～)~zZ</b></p>
+                </div>
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <div class="nav1" id="info">
+                    <h2 class="smallMargin" id="infoTitle"><b style="color: slateblue;">about:</b></h2>
+                    <div class="subText">
+                        > My name is Avery (she/her)
+                        <br>
+                        Welcome to my portfolio. <br>
+                        currently studying Applied Computer Science (with 10 years of coding experience)<br>
+                        <br> 
+                        > hope youll enjoy lookin around here for now （＾∀＾●）ﾉｼ
+                        <br>
+                        it must be noted that this is a temporary version of this site until i finish designing everything else!
+                    </div>
+                    <hr style="color:chartreuse;  margin-top: 10px;">
+
+                    <h2 class="smallMargin" id="infoTitle"><b style="color: slateblue;">Projects:</b></h2>
+                    <div class="subText" id="project1">
+                        <img src="assets/images/notesu.png" alt="notesu icon" width="25">
+                        <a href="https://github.com/Averyden/Notesu" target="_blank">[Notesu]</a> - a w.i.p sticky note website started as a hobby project
+                    </div>
+
+                    <div class="projectPreview" id="notesuPreview" >
+                        <img id="randomNotesuPreview" src="">
+                        <p id="randomNotesuCaption"></p>
+                    </div>
+
+                    <hr style="color:#438600; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto;">
+
+                    <div class="subText" id="project2">
+                        <img src="assets/images/noIcon.png" alt="logoLess project" width="25">
+                        <a href="https://github.com/Averyden/password-manager" target="_blank">[PasMan]</a> - a password manager written in Python using the TKinter library.
+                    </div>
+
+                    <div class="projectPreview" id="pasManPreview" >
+                        <!-- <img id="randomPreview" src=""> -->
+                        <p id="randomCaption" style="font-style: italic;">[no current previews to show]</p>
+                    </div>
+                    
+                    <hr style="color:#438600; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto; margin-bottom: 10px;">
+                    
+                    <div class="subText" id="project3">
+                        <img src="assets/images/noIcon.png" alt="logoLess project" width="25">
+                        <a href="https://github.com/Averyden/Acto" target="_blank">[Acto]</a> - todo manager written in Python. [Archival project]
+                    </div>
+
+                    <div class="projectPreview" id="actoPreview" >
+                        <!-- <img id="randomPreview" src=""> -->
+                        <p id="randomCaption" style="font-style: italic;">[no current previews to show]</p>
+                    </div>
+
+                    <hr style="color:chartreuse; margin-top: 10px; width: 35%; margin-left: auto; margin-right: auto; margin-bottom: 10px;">
+
+                    <div class="extraInfo">
+                        not all of my projects are listed here.
+                        <br> 
+                        feel free to visit my 
+
+                        <a href="https://github.com/Averyden" target="_blank" class="inlineLink">[github]</a> to see further projects i am working on (｡･∀･)ﾉﾞ
+                    </div>
+
+
+
+
                 </div>
             </th>
         </tr>
     </table> 
+
+
 
 </body>
 </html>
