@@ -106,3 +106,7 @@ a {
     gap: 8px;                   
     justify-content: center;
 }
+
+.projectPreview {
+    color: #919191;
+}
