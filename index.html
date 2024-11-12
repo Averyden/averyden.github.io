@@ -15,6 +15,9 @@
 <body class="chart">
     
   
+    <canvas id="starfield" style="z-index: -10;"></canvas>
+    <script src="/src/scripts/compiledJS/stars.js"></script>
+
     <!-- Just adding this to test something out. -->
     <table class="mainBox">
         <tr>
@@ -48,6 +51,12 @@
                         <img src="assets/images/notesu.png" alt="notesu icon" width="25">
                         <a href="https://github.com/Averyden/Notesu" target="_blank">[Notesu]</a> - a w.i.p sticky note website started as a hobby project
                     </div>
+
+                    <div class="projectPreview" id="notesuPreview" >
+                        <img id="randomNotesuPreview" src="">
+                        <p id="randomNotesuCaption"></p>
+                    </div>
+
                     <hr style="color:chartreuse; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto;">
 
                     <div class="subText" id="project2">
@@ -81,8 +90,6 @@
     </table> 
 
 
-    <canvas id="starfield"></canvas>
-    <script src="/src/scripts/compiledJS/stars.js"></script>
 
 </body>
 </html>
