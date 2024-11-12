@@ -27,6 +27,7 @@ canvas  {
     left: 0;
     width: 100vw;
     height: 100vh;
+    pointer-events: none;
 }
 
 h1 {
@@ -91,4 +92,13 @@ h2 {
 
 .subText {
     color: #00ffc8;
+    display: flex;            
+    align-items: center;       
+    gap: 8px;                   
+    justify-content: center;
 }
+
+a {
+    color: #ff0095;
+}
+
