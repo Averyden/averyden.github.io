@@ -42,5 +42,7 @@ function applySelectedNotesuPreview() : void {
     console.log("we did")
 }
 
-applySelectedNotesuPreview()
+window.onload = function() {
+    applySelectedNotesuPreview()
+ }
 
