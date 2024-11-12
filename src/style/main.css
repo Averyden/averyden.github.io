@@ -20,7 +20,7 @@ html, body {
     overflow: hidden;
 }
 
-canvas  {
+canvas {
     display: block;
     position: fixed;
     top: 0;
@@ -54,12 +54,11 @@ tr {
 th {
     border: 1px solid chartreuse;
     padding: 8px 10px;
-  
     height: auto;
     text-align: center;
     white-space: nowrap;
     word-wrap: break-word;
-  }
+}
 
 .mainBox {
     display: flex;
@@ -71,7 +70,6 @@ th {
     padding: 0;
     overflow-y: auto;
 }
-
 
 .chart {
     color: chartreuse;
@@ -102,3 +100,10 @@ a {
     color: #ff0095;
 }
 
+.extraInfo {
+    color: #00ffc8;
+    /* display: flex;             */
+    align-items: center;       
+    gap: 8px;                   
+    justify-content: center;
+}
