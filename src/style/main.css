@@ -110,3 +110,8 @@ a {
 .projectPreview {
     color: #919191;
 }
+
+.projectPreview img {
+    margin-top: 25px;
+    max-width: 500px;
+}
