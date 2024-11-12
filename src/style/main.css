@@ -102,7 +102,6 @@ a {
 
 .extraInfo {
     color: #00ffc8;
-    /* display: flex;             */
     align-items: center;       
     gap: 8px;                   
     justify-content: center;
