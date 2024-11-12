@@ -73,7 +73,7 @@ class Star {
 
 // TODO: make it assing a random color in the range of all these colors :D 
 // This could result in weird colors tho....
-    assignColor(): void { //* Override the default colors for the string variants.
+    assignColor(): void { //* Override the default colors for the string variants... because those exist for some reason
         switch(this.color) {
             case "pink":
                 this.color = "rgb(255, 150, 200)"
@@ -86,8 +86,7 @@ class Star {
                 break
         }
     }
-
-
+    
     draw(): void {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
