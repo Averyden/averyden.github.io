@@ -29,9 +29,17 @@ function applySelectedNotesuPreview() : void {
     const capElem = document.getElementById("randomNotesuCaption")
 
     if (imgElem && capElem) {
-        imgElem.src = selectedImg.src
-        capElem.textContent = selectedImg.caption
+        imgElem.src = selectedImg.src;
+        capElem.textContent = selectedImg.caption;
+
+        imgElem.style.display = 'none';  
+        imgElem.offsetHeight; 
+        imgElem.style.display = ''; 
+
+    } else {
+        console.log("Could not find the image or caption element.");
     }
+    console.log("we did")
 }
 
 applySelectedNotesuPreview()
