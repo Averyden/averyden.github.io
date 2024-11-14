@@ -20,7 +20,8 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
 
     Pasman: [
         {src: "/assets/projectPreviews/pasman/pasManMainVault.png", caption: "Pasman main password vault that is completely empty."},
-        {src: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", caption:"HAHAHSDUIFGUI"}
+        {src: "/assets/projectPreviews/pasman/pasManRegisterInvalidMail.png", caption:"attempting to register an account in pasman, using an invalid email."},
+        {src: "/assets/projectPreviews/pasman/pasmanEmailFormatDetection.gif", caption:"demonstration of code being able to recognize a valid email format in pasman"}
     ]
 } // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
 
