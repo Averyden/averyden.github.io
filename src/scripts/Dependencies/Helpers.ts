@@ -10,7 +10,7 @@ interface IPicturePreview {
 }
 
 const projectPreviews: { [key: string]: IPicturePreview[] } = {
-    notesu: [
+    Notesu: [
         { src: "/assets/projectPreviews/notesu/addingNotes.gif", caption: "creating notes in Notesu."},
         { src: "/assets/projectPreviews/notesu/configDeadline.gif", caption: "configuring the deadline of a note in Notesu."}, 
         { src: "/assets/projectPreviews/notesu/configDelete.gif", caption: "deleting a note in Notesu."},
@@ -18,8 +18,9 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
         { src: "/assets/projectPreviews/notesu/notesuStill.png", caption: "Notesu preview."} //? the one singular png :troll:
     ],
 
-    pasman: [
-        
+    Pasman: [
+        {src: "/assets/projectPreviews/pasman/pasManMainVault.png", caption: "Pasman main password vault that is completely empty."},
+        {src: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", caption:"HAHAHSDUIFGUI"}
     ]
 } // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
 
@@ -37,8 +38,8 @@ function getRandomProjectPreview(project: string) : IPicturePreview | null {
 function applySelectedPreview(project: string) : void {
     const selectedImg = getRandomProjectPreview(project)
 
-    const imgElem = document.querySelector(`#${project}Pewview img`) as HTMLImageElement
-    const capElem = document.getElementById(`#${project}Pewview p`)
+    const imgElem = document.getElementById(`random${project}Preview`) as HTMLImageElement
+    const capElem = document.getElementById(`random${project}Caption`)
 
     if (imgElem && capElem) {
         if (selectedImg) {
@@ -59,7 +60,7 @@ function applySelectedPreview(project: string) : void {
 }
 
 window.onload = function() {
-    const projects = ["notesu", "pasman", "acto"]
-    projects.forEach(project => applySelectedPreview(project))
+    const projects = ["Notesu", "Pasman", "Acto"]
+    projects.forEach(project => applySelectedPreview(project))  
  }
 
