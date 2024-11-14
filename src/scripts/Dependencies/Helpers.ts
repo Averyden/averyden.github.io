@@ -34,11 +34,11 @@ function getRandomProjectPreview(project: string) : IPicturePreview | null {
     }
 }
 
-function applySelectedNotesuPreview() : void {
-    const selectedImg = getRandomNotesuPreview()
+function applySelectedPreview(project: string) : void {
+    const selectedImg = getRandomProjectPreview(project)
 
-    const imgElem = document.getElementById("randomNotesuPreview") as HTMLImageElement
-    const capElem = document.getElementById("randomNotesuCaption")
+    const imgElem = document.querySelector(`#${project}Pewview img`) as HTMLImageElement
+    const capElem = document.getElementById(`#${project}Pewview p`)
 
     if (imgElem && capElem) {
         imgElem.src = selectedImg.src;
