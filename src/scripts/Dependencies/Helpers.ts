@@ -22,7 +22,8 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
         {src: "/assets/projectPreviews/pasman/pasManMainVault.png", caption: "Pasman main password vault that is completely empty."},
         {src: "/assets/projectPreviews/pasman/pasManRegisterInvalidMail.png", caption:"attempting to register an account in pasman, using an invalid email."},
         {src: "/assets/projectPreviews/pasman/pasmanEmailFormatDetection.gif", caption:"demonstration of code being able to recognize a valid email format in pasman"},
-        {src: "/assets/projectPreviews/pasman/pasManComputerLeaked.gif", caption: "checking how many breaches a password has been involved with in Pasman."}
+        {src: "/assets/projectPreviews/pasman/pasManComputerLeaked.gif", caption: "checking how many breaches a password has been involved with in Pasman."},
+        {src: "/assets/projectPreviews/pasman/pasManAccountDeletion.gif", caption: "deleting an account in Pasman."}
     ]
 } // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
 
@@ -45,12 +46,12 @@ function applySelectedPreview(project: string) : void {
 
     if (imgElem && capElem) {
         if (selectedImg) {
-        imgElem.src = selectedImg.src;
-        capElem.textContent = selectedImg.caption;
+            imgElem.src = selectedImg.src;
+            capElem.textContent = selectedImg.caption;
 
-        imgElem.style.display = 'none';  
-        imgElem.offsetHeight; 
-        imgElem.style.display = ''; 
+            imgElem.style.display = 'none';  
+            imgElem.offsetHeight; 
+            imgElem.style.display = ''; 
         } else {
             capElem.textContent = "[no current previews to show]"
             imgElem.style.display = ''
