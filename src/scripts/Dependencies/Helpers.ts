@@ -41,20 +41,25 @@ function applySelectedPreview(project: string) : void {
     const capElem = document.getElementById(`#${project}Pewview p`)
 
     if (imgElem && capElem) {
+        if (selectedImg) {
         imgElem.src = selectedImg.src;
         capElem.textContent = selectedImg.caption;
 
         imgElem.style.display = 'none';  
         imgElem.offsetHeight; 
         imgElem.style.display = ''; 
+        } else {
+            capElem.textContent = "[no current previews to show]"
+            imgElem.style.display = ''
+        }
 
     } else {
-        console.log("Could not find the image or caption element.");
+        console.log(`Could not find the image or caption element. for:${project}`);
     }
-    console.log("we did")
 }
 
 window.onload = function() {
-    applySelectedNotesuPreview()
+    const projects = ["notesu", "pasman", "acto"]
+    projects.forEach(project => applySelectedPreview(project))
  }
 
