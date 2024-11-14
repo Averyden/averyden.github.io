@@ -60,6 +60,20 @@ th {
     word-wrap: break-word;
 }
 
+.nav1 #info h2, .nav1 #info .subText {
+    padding-bottom: 10px;
+}
+
+.scrollable-content {
+    max-height: 60vh;
+    overflow-y: auto; 
+    padding-right: 10px;
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+
+}
+
 .mainBox {
     display: flex;
     justify-content: center;
