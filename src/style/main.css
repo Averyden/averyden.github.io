@@ -64,6 +64,7 @@ th {
     padding-bottom: 10px;
 }
 
+
 .scrollable-content {
     max-height: 60vh;
     overflow-y: auto; 
@@ -92,6 +93,11 @@ th {
 .smallMargin {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.titleMargin {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 h2 {
