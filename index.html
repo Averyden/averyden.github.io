@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="/src/style/main.css">
     <!-- Load all funky scripts -->
     <!-- THIS SPECIFIC LIST IS THE DEPENDENCIES AND DEPENDENCIES ONLY -->
-   
+    <script src="/src/scripts/compiledJS/Dependencies/Helpers.js"></script>
+    <script src="/src/scripts/compiledJS/Dependencies/rainbow.js"></script>
     
 </head>
 <body class="chart">
-    <script src="/src/scripts/compiledJS/Dependencies/Helpers.js"></script>
-    <script src="/src/scripts/compiledJS/Dependencies/rainbow.js"></script>
-  
+    
     <canvas id="starfield" style="z-index: -10;"></canvas>
     <script src="/src/scripts/compiledJS/stars.js"></script>
 
@@ -33,6 +32,7 @@
         <tr>
             <th>
                 <div class="nav1" id="info">
+                    <!-- Static Content (About Section) -->
                     <h2 class="smallMargin" id="infoTitle"><b style="color: slateblue;">about:</b></h2>
                     <div class="subText">
                         > My name is Avery (she/her)
@@ -44,62 +44,58 @@
                         <br>
                         it must be noted that this is a temporary version of this site until i finish designing everything else!
                     </div>
-                    <hr style="color:chartreuse;  margin-top: 10px;">
+                    <hr style="color:chartreuse; margin-top: 10px; margin-bottom: 10px;">
 
-                    <h2 class="smallMargin" id="infoTitle"><b style="color: slateblue;">Projects:</b></h2>
-                    <div class="subText" id="project1">
-                        <img src="assets/images/notesu.png" alt="notesu icon" width="25">
-                        <a href="https://github.com/Averyden/Notesu" target="_blank">[Notesu]</a> - a w.i.p sticky note website started as a hobby project
+                    <!-- Scrollable Content Starts Here -->
+                    <div class="scrollable-content">
+                        <h2 class="smallMargin" id="infoTitle"><b style="color: slateblue;">Projects:</b></h2>
+                        <div class="subText" id="project1">
+                            <img src="assets/images/notesu.png" alt="notesu icon" width="25">
+                            <a href="https://github.com/Averyden/Notesu" target="_blank">[Notesu]</a> - a w.i.p sticky note website started as a hobby project
+                        </div>
+
+                        <div class="projectPreview" id="notesuPreview">
+                            <img id="randomNotesuPreview" src="">
+                            <p id="randomNotesuCaption"></p>
+                        </div>
+
+                        <hr style="color:#438600; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto;">
+
+                        <div class="subText" id="project2">
+                            <img src="assets/images/noIcon.png" alt="logoLess project" width="25">
+                            <a href="https://github.com/Averyden/password-manager" target="_blank">[PasMan]</a> - a password manager written in Python using the TKinter library.
+                        </div>
+
+                        <div class="projectPreview" id="pasManPreview">
+                            <img id="randomPasmanPreview" src="">
+                            <p id="randomPasmanCaption" style="font-style: italic;">[no current previews to show]</p>
+                        </div>
+                        
+                        <hr style="color:#438600; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto; margin-bottom: 10px;">
+                        
+                        <div class="subText" id="project3">
+                            <img src="assets/images/noIcon.png" alt="logoLess project" width="25">
+                            <a href="https://github.com/Averyden/Acto" target="_blank">[Acto]</a> - todo manager written in Python. [Archival project]
+                        </div>
+
+                        <div class="projectPreview" id="actoPreview">
+                            <img id="randomActoPreview" src="">
+                            <p id="randomActoCaption" style="font-style: italic;">[no current previews to show]</p>
+                        </div>
+
+                        <hr style="color:chartreuse; margin-top: 10px; width: 35%; margin-left: auto; margin-right: auto; margin-bottom: 10px;">
+
+                        <div class="extraInfo">
+                            not all of my projects are listed here.
+                            <br> 
+                            feel free to visit my 
+
+                            <a href="https://github.com/Averyden" target="_blank" class="inlineLink">[github]</a> to see further projects i am working on (｡･∀･)ﾉﾞ
+                        </div>
                     </div>
-
-                    <div class="projectPreview" id="notesuPreview" >
-                        <img id="randomNotesuPreview" src="">
-                        <p id="randomNotesuCaption"></p>
-                    </div>
-
-                    <hr style="color:#438600; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto;">
-
-                    <div class="subText" id="project2">
-                        <img src="assets/images/noIcon.png" alt="logoLess project" width="25">
-                        <a href="https://github.com/Averyden/password-manager" target="_blank">[PasMan]</a> - a password manager written in Python using the TKinter library.
-                    </div>
-
-                    <div class="projectPreview" id="pasManPreview" >
-                        <!-- <img id="randomPreview" src=""> -->
-                        <p id="randomCaption" style="font-style: italic;">[no current previews to show]</p>
-                    </div>
-                    
-                    <hr style="color:#438600; margin-top: 10px; width: 20%; margin-left: auto; margin-right: auto; margin-bottom: 10px;">
-                    
-                    <div class="subText" id="project3">
-                        <img src="assets/images/noIcon.png" alt="logoLess project" width="25">
-                        <a href="https://github.com/Averyden/Acto" target="_blank">[Acto]</a> - todo manager written in Python. [Archival project]
-                    </div>
-
-                    <div class="projectPreview" id="actoPreview" >
-                        <!-- <img id="randomPreview" src=""> -->
-                        <p id="randomCaption" style="font-style: italic;">[no current previews to show]</p>
-                    </div>
-
-                    <hr style="color:chartreuse; margin-top: 10px; width: 35%; margin-left: auto; margin-right: auto; margin-bottom: 10px;">
-
-                    <div class="extraInfo">
-                        not all of my projects are listed here.
-                        <br> 
-                        feel free to visit my 
-
-                        <a href="https://github.com/Averyden" target="_blank" class="inlineLink">[github]</a> to see further projects i am working on (｡･∀･)ﾉﾞ
-                    </div>
-
-
-
-
                 </div>
             </th>
         </tr>
-    </table> 
-
-
-
+    </table>
 </body>
 </html>
