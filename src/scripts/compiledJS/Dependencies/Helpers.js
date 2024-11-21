@@ -19,8 +19,8 @@ const projectPreviews = {
         { src: "/assets/projectPreviews/pasman/pasManAccountDeletion.gif", caption: "deleting an account in Pasman." }
     ],
     LazGamba: [
-        { src: "/assets/projectPreviews/lazGamba/losing.gif", caption: "not hitting the checkpoint in LazGamba" },
-        { src: "/assets/projectPreviews/lazGamba/winning.gif", caption: "hitting the jacpot in LazGamba" }
+        { src: "/assets/projectPreviews/lazGamba/losing.gif", caption: "not hitting the jackpot in LazGamba" },
+        { src: "/assets/projectPreviews/lazGamba/winning.gif", caption: "hitting the jackpot in LazGamba" }
     ]
 }; // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
 function getRandomProjectPreview(project) {

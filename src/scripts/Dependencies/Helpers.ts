@@ -27,8 +27,8 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
     ],
 
     LazGamba: [
-        {src: "/assets/projectPreviews/lazGamba/losing.gif", caption: "not hitting the checkpoint in LazGamba"},
-        {src: "/assets/projectPreviews/lazGamba/winning.gif", caption: "hitting the jacpot in LazGamba"}
+        {src: "/assets/projectPreviews/lazGamba/losing.gif", caption: "not hitting the jackpot in LazGamba"},
+        {src: "/assets/projectPreviews/lazGamba/winning.gif", caption: "hitting the jackpot in LazGamba"}
 
 
     ]
