@@ -24,6 +24,13 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
         {src: "/assets/projectPreviews/pasman/pasmanEmailFormatDetection.gif", caption:"demonstration of code being able to recognize a valid email format in pasman"},
         {src: "/assets/projectPreviews/pasman/pasManComputerLeaked.gif", caption: "checking how many breaches a password has been involved with in Pasman."},
         {src: "/assets/projectPreviews/pasman/pasManAccountDeletion.gif", caption: "deleting an account in Pasman."}
+    ],
+
+    LazGamba: [
+        {src: "/assets/projectPreviews/lazGamba/losing.gif", caption: "not hitting the checkpoint in LazGamba"},
+        {src: "/assets/projectPreviews/lazGamba/winning.gif", caption: "hitting the jacpot in LazGamba"}
+
+
     ]
 } // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
 
@@ -63,7 +70,7 @@ function applySelectedPreview(project: string) : void {
 }
 
 window.onload = function() {
-    const projects = ["Notesu", "Pasman", "Acto"]
+    const projects = ["Notesu", "Pasman", "Acto", "LazGamba"]
     projects.forEach(project => applySelectedPreview(project))  
  }
 
