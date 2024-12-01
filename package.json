@@ -1,4 +1,9 @@
 {
+  "name": "Y2K",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "typescript": "^5.6.3"
   }
