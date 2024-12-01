@@ -7,4 +7,5 @@ The single goal of this website is to try and recreate one of those personal web
 
 ## Notice 
 it currently looks horrid on mobile devices... sorryy {{{(>_<)}}} (i CBA to fix it right now)
+
 I also need to figure out a proper way to make github pages autocompile all my typescript so i can finally add javascript to my .gitignore (i dont like the javascript files bloating up this repository and adding its ugly yellow color to my stats ＞︿＜)
