@@ -34,7 +34,7 @@ jobs:
           mkdir -p dist
           cp index.html dist/                # Copy the main HTML file
           cp -r src/scripts/compiledJS dist/compiledJS # Copy compiled JavaScript files
-          cp -r style dist/style             # Copy the CSS styles
+          cp -r style dist/style || true             # Copy the CSS styles
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
