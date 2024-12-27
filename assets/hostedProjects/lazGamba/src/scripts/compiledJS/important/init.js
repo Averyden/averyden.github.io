@@ -11,6 +11,71 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 initCoins();
+const bah = fetchUnlockedCases();
+saveUnlocked(bah);
+let selectedGambaCase = null;
+let caseID = -1;
+const body = document.body;
+body.style.transition = "background-color 1s ease";
+const pricelbl = document.getElementById("gambaCost");
+const namelbl = document.getElementById("caseName");
+const initializeSelectedGambaCase = (gId) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield fetch("src/dictionaries/gambaSelection.json");
+        const jsonData = yield response.json();
+        const gambaCases = jsonData.gambaCases;
+        selectedGambaCase = gambaCases.find((gCase) => gCase.gId === gId);
+        caseID = gId; // YES WE ARE SETTING IT TWICE BUT WHO CARES GRAAAAAAAAAA IM TOO LAZY TO FIGURE SOMETHING ELSE OUT.
+        if (isGambaUnlocked(gId)) {
+            body.style.background = selectedGambaCase.background;
+            body.style.filter = "";
+            pricelbl.innerHTML = `Price to spin: ${selectedGambaCase.cost}`;
+        }
+        else {
+            body.style.background = "#bbbbbb";
+            pricelbl.innerHTML = `Price to unlock: ${selectedGambaCase.price}`;
+        }
+        if (namelbl.innerHTML == "Error fetching name of gamba...") {
+            namelbl.innerHTML = selectedGambaCase.name; // Set it to the name if it isnt loaded yet.
+        }
+        if (selectedGambaCase) {
+            console.log(`Selected Gamba Case:`, selectedGambaCase);
+            handler.updateCase(selectedGambaCase);
+            namelbl.classList.add("outInFadeName");
+            purchaseBtn.classList.add("outInFadeName");
+            purchaseBtn.disabled = true;
+            changeLeft.disabled = true;
+            changeRight.disabled = true;
+            setTimeout(() => {
+                namelbl.innerHTML = selectedGambaCase.name;
+            }, 500);
+            setTimeout(() => {
+                namelbl.classList.remove("outInFadeName");
+                purchaseBtn.classList.remove("outInFadeName");
+                changeLeft.disabled = false;
+                purchaseBtn.disabled = false;
+                changeRight.disabled = false;
+            }, 1000);
+        }
+        else {
+            console.warn(`No Gamba Case found with gId: ${gId}`);
+        }
+    }
+    catch (error) {
+        console.error("Error loading or parsing gambaSelection.json:", error);
+    }
+});
+const initializeHandler = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield initializeSelectedGambaCase(0);
+    if (selectedGambaCase) {
+        handler = new GambaHandler();
+        console.log('Handler initialized');
+    }
+    else {
+        console.error('Error: selectedGambaCase is still null, handler cannot be initialized.');
+    }
+});
+initializeHandler();
 const lblCoins = document.getElementById("coinLabel");
 const updateCoinDisplay = () => {
     if (lblCoins) {
