@@ -5,25 +5,29 @@ const purchaseBtn = document.getElementById("purchaseCaseBtn");
 purchaseBtn.addEventListener("click", () => handlePurchaseCase(selectedGambaCase.gId));
 const fetchUnlockedCases = () => {
     const rawData = localStorage.getItem("unlockedCases");
-    if (!rawData)
-        return [];
-    try {
-        const parsedData = JSON.parse(rawData);
-        if (Array.isArray(parsedData)) {
-            return parsedData;
+    let unlockedCases = [];
+    if (rawData) {
+        try {
+            const parsedData = JSON.parse(rawData);
+            if (Array.isArray(parsedData)) {
+                unlockedCases = parsedData;
+            }
+            else if (typeof parsedData === "object" && parsedData !== null) {
+                unlockedCases = [parsedData.gId];
+            }
+            else {
+                console.error("Unexpected data format in unlockedCases:", parsedData);
+            }
         }
-        else if (typeof parsedData === "object" && parsedData !== null) {
-            return [parsedData.gId];
-        }
-        else {
-            console.error("Unexpected data format in unlockedCases:", parsedData);
-            return [];
+        catch (err) {
+            console.error("Failed to parse unlockedCases:", err);
         }
     }
-    catch (err) {
-        console.error("Failed to parse unlockedCases:", err);
-        return [];
+    if (!unlockedCases.includes(0)) {
+        unlockedCases.push(0);
+        saveUnlocked(unlockedCases);
     }
+    return unlockedCases;
 };
 const saveUnlocked = (caseIds) => {
     localStorage.setItem("unlockedCases", JSON.stringify(caseIds));
