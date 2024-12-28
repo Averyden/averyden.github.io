@@ -49,6 +49,7 @@ const handlePurchaseCase = (id) => {
             saveUnlocked(unlockedCases);
             updateButtonState(id);
             initializeSelectedGambaCase(id);
+            updateCoinDisplay();
         }
         else {
             console.error("User cannot afford case...");
