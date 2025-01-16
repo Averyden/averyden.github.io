@@ -13,12 +13,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 initCoins();
 const bah = fetchUnlockedCases();
 saveUnlocked(bah);
+const popup = new Popup("popupContainer");
 let selectedGambaCase = null;
 let caseID = -1;
 const body = document.body;
 body.style.transition = "background-color 1s ease";
 const pricelbl = document.getElementById("gambaCost");
 const namelbl = document.getElementById("caseName");
+const infoButton = document.getElementById("caseTip");
+infoButton.addEventListener("click", () => { popup.show("caseInfo", sendCaseInfoMessage()); });
+const sendCaseInfoMessage = () => {
+    let curCaseUnlockedVar;
+    if (isGambaUnlocked(selectedGambaCase.gId)) {
+        curCaseUnlockedVar = true;
+    }
+    else {
+        curCaseUnlockedVar = false;
+    }
+    return `
+    Internal id: ${selectedGambaCase.gId}<br>
+    Price per spin: ${selectedGambaCase.cost}<br>
+    Return multiplier: ${selectedGambaCase.winMult}<br>
+    Jackpot rate: 1/${selectedGambaCase.rate}<br>
+    Unlocked: ${curCaseUnlockedVar}`;
+};
 const initializeSelectedGambaCase = (gId) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield fetch("src/dictionaries/gambaSelection.json");
