@@ -1,7 +1,7 @@
 // I know its called rainbow but ill also use this to animate stuff on the site wahoo.
 
 setInterval(rainbow, 1000)
-setInterval(eepyFrame1, 2000)
+setInterval(toggleEepy, 1000)
 function rainbow() {
     const toColor = document.getElementById('rainbow')
     if (toColor != null) {
@@ -22,13 +22,13 @@ function getRandomColor() {
 
 
 
-function eepyFrame1() {
-    const eepyElement = document.getElementById('eepy') as HTMLSpanElement
-    eepyElement.innerHTML = "(～﹃～)~zZ"
-}
 
-function eepyFrame2() {
-    const eepyElement = document.getElementById('eepy') as HTMLSpanElement
-    eepyElement.innerHTML = "(～﹃～)~ZzZ"
+function toggleEepy() {
+    const eepyElement = document.getElementById('eepy')
+    if (eepyElement) {
+        eepyElement.textContent = 
+            eepyElement.textContent === "(～﹃～)~zZ" ? "(～﹃～)~ZzZ" : "(～﹃～)~zZ"
+    } else {
+        console.log("eepy element not found.")
+    }
 }
-
