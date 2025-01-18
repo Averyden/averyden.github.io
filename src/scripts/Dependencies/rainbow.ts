@@ -1,3 +1,5 @@
+// I know its called rainbow but ill also use this to animate stuff on the site wahoo.
+
 setInterval(rainbow, 1000);
 function rainbow() {
     const toColor = document.getElementById('rainbow')
