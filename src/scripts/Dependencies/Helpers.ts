@@ -35,6 +35,8 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
 
     Acto: [
         {src: "/assets/projectPreviews/acto/actionDelete.gif", caption: "Deleting an existing action in Acto."},
+        {src: "/assets/projectPreviews/acto/completeAction.gif", caption: "Marking an action as complete in Acto."},
+        {src: "/assets/projectPreviews/acto/createAction.gif", caption: "Creating an action in Acto."}
 
     ]
 } // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
