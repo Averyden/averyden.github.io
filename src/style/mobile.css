@@ -87,3 +87,15 @@ Both portait mode, and landscape mode */
         padding: 10px 0;
     }
 }
+
+/* Landscape orientation */
+
+@media (max-width: 900px) and (orientation: landscape) {
+    html, body {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        overflow-y: auto;
+        height: auto;
+    }
+}
