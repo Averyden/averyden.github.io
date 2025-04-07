@@ -95,41 +95,68 @@ Both portait mode, and landscape mode */
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
-        overflow-y: auto;
-        height: auto;
+        height: auto !important;
+        overflow-y: auto !important;
     }
 
     .mainBox {
         flex-direction: column;
+        height: auto !important;
         width: 100vw;
-        height: auto;
+        overflow: visible !important;
         padding: 10px;
-        overflow: visible;
     }
 
     table, tr, th {
-        width: 100%;
         display: block;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    
+    th {
+        padding: 12px;
+        white-space: normal;
+        word-wrap: break-word;
+        margin-bottom: 8px;
+    }
+
     .scrollable-content {
-        max-height: none;
-        overflow: visible;
+        max-height: none !important;
+        overflow: visible !important;
+        padding-right: 0;
     }
 
     .projectPreview img {
-        max-width: 100%;
+        max-width: 95vw;
         height: auto;
+        display: block;
+        margin: 10px auto;
     }
 
     .subText {
         flex-direction: column;
         text-align: center;
+        gap: 6px;
     }
 
     .tryButton {
+        display: block;
+        margin: 12px auto;
+        padding: 6px 12px;
         width: fit-content;
-        margin: 10px auto;
+        text-align: center;
+    }
+
+    .extraInfo {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
     }
 }
