@@ -98,4 +98,38 @@ Both portait mode, and landscape mode */
         overflow-y: auto;
         height: auto;
     }
+
+    .mainBox {
+        flex-direction: column;
+        width: 100vw;
+        height: auto;
+        padding: 10px;
+        overflow: visible;
+    }
+
+    table, tr, th {
+        width: 100%;
+        display: block;
+    }
+
+    
+    .scrollable-content {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .projectPreview img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .subText {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tryButton {
+        width: fit-content;
+        margin: 10px auto;
+    }
 }
