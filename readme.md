@@ -1,4 +1,4 @@
-# Unnamed Y2K-esk project
+# Portfolio Site
 This is a web project I am working on in my freetime.
 It's more or less just typescript learning i suppose (。・ω・。)
 
