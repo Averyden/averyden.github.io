@@ -84,7 +84,7 @@ function applySelectedPreview(project: string) : void {
 }
 
 window.onload = function() {
-    const projects = ["Notesu", "Pasman", "Acto", "LazGamba"]
+    const projects = ["Notesu", "Pasman", "Acto", "LazGamba", "MetaTune"]
     projects.forEach(project => applySelectedPreview(project))  
  }
 
