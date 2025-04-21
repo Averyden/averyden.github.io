@@ -38,6 +38,13 @@ const projectPreviews: { [key: string]: IPicturePreview[] } = {
         {src: "/assets/projectPreviews/acto/completeAction.gif", caption: "Marking an action as complete in Acto."},
         {src: "/assets/projectPreviews/acto/createAction.gif", caption: "Creating an action in Acto."}
 
+    ],
+
+    MetaTune: [
+        {src: "/assets/projectPreviews/metatune/metaDark.png", caption: "MetaTune with dark mode turned on."},
+        {src: "/assets/projectPreviews/metatune/metaLight.png", caption: "MetaTune preview."},
+        {src: "/assets/projectPreviews/metatune/metaToggle.gif", caption: "Toggling dark mode in MetaTune"}, // That moment when youre entire selling point isnt actually the functionality, but rather the fucking dark mode... idk what else to showcase lmao its pretty basic
+        {src: "/assets/projectPreviews/metatune/metaUsage.gif", caption: "Uploading an audio file into MetaTune, and editing its connected meta data."}
     ]
 } // this is a HORRID way of doing it. BUT IT WORKS SO FUCK OYU!
 
@@ -77,7 +84,7 @@ function applySelectedPreview(project: string) : void {
 }
 
 window.onload = function() {
-    const projects = ["Notesu", "Pasman", "Acto", "LazGamba"]
+    const projects = ["Notesu", "Pasman", "Acto", "LazGamba", "MetaTune"]
     projects.forEach(project => applySelectedPreview(project))  
  }
 

@@ -75,6 +75,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 //* Make sure canvas is resized when the window is.
+//TODO: actually make this fucking work lmao
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
