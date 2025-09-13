@@ -76,6 +76,7 @@ class ShootingStar {
   speed: number = 0
   angle: number = 0
   opacity: number = 0
+  color: string = '255, 255, 255'
   active: boolean = false
 
   constructor(width: number, height: number) {
@@ -87,11 +88,17 @@ class ShootingStar {
     this.y = Math.random() * height * 0.5
     this.length = Math.random() * 80 + 50
     this.speed = Math.random() * 8 + 5
-    this.angle = Math.PI / 4
+
+    const minAngle = (20 * Math.PI) / 180
+    const maxAngle = (70 * Math.PI) / 180
+    this.angle = Math.random() * (maxAngle - minAngle)
+
+    const colors = ['230, 232, 199', '150, 200, 255', '255, 200, 200', '200, 255, 200']
+    this.color = colors[Math.floor(Math.random() * colors.length)]
+
     this.opacity = 1
     this.active = true
   }
-
   update(width: number, height: number) {
     if (!this.active) return
 
@@ -110,7 +117,7 @@ class ShootingStar {
     const xEnd = this.x - Math.cos(this.angle) * this.length
     const yEnd = this.y - Math.sin(this.angle) * this.length
 
-    ctx.strokeStyle = `rgba(230, 232, 199,${this.opacity})`
+    ctx.strokeStyle = `rgba(${this.color},${this.opacity})`
     ctx.lineWidth = 2
     ctx.beginPath()
     ctx.moveTo(this.x, this.y)
