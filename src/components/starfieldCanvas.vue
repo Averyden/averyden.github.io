@@ -29,7 +29,7 @@ class Star {
     this.direction = Math.random() * Math.PI * 2
     this.color = this.assignColor(['pink', 'purple', 'white'])
     this.opacity = Math.random()
-    this.opacitySpeed = (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
+    this.opacitySpeed = (Math.random() * 0.01 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
   }
 
   assignColor(colors: string[]): string {
