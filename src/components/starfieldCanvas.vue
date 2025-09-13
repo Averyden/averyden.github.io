@@ -18,6 +18,8 @@ class Star {
   speed: number
   direction: number
   color: string
+  opacity: number
+  opacitySpeed: number
 
   constructor(width: number, height: number) {
     this.x = Math.random() * width
@@ -26,17 +28,19 @@ class Star {
     this.speed = Math.random() * 0.3
     this.direction = Math.random() * Math.PI * 2
     this.color = this.assignColor(['pink', 'purple', 'white'])
+    this.opacity = Math.random()
+    this.opacitySpeed = (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
   }
 
   assignColor(colors: string[]): string {
     const choice = colors[Math.floor(Math.random() * colors.length)]
     switch (choice) {
       case 'pink':
-        return 'rgb(255, 150, 200)'
+        return '255, 150, 200'
       case 'purple':
-        return 'rgb(194, 110, 194)'
+        return '194, 110, 194'
       default:
-        return 'rgb(255,255,255)'
+        return '255, 255, 255'
     }
   }
 
@@ -48,12 +52,18 @@ class Star {
       this.x = Math.random() * width
       this.y = Math.random() * height
     }
+
+    this.opacity += this.opacitySpeed
+    if (this.opacity <= 0 || this.opacity >= 1) {
+      this.opacitySpeed *= -1
+      this.opacity = Math.max(0, Math.min(1, this.opacity))
+    }
   }
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-    ctx.fillStyle = this.color
+    ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`
     ctx.fill()
   }
 }
