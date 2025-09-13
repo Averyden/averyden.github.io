@@ -10,6 +10,7 @@ let ctx: CanvasRenderingContext2D | null = null
 let animationFrameId: number
 
 const stars: Star[] = []
+const shootingStars: ShootingStar[] = []
 
 class Star {
   x: number
@@ -29,7 +30,7 @@ class Star {
     this.direction = Math.random() * Math.PI * 2
     this.color = this.assignColor(['pink', 'purple', 'white'])
     this.opacity = Math.random()
-    this.opacitySpeed = (Math.random() * 0.01 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
+    this.opacitySpeed = (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
   }
 
   assignColor(colors: string[]): string {
@@ -68,6 +69,56 @@ class Star {
   }
 }
 
+class ShootingStar {
+  x: number = 0
+  y: number = 0
+  length: number = 0
+  speed: number = 0
+  angle: number = 0
+  opacity: number = 0
+  active: boolean = false
+
+  constructor(width: number, height: number) {
+    this.reset(width, height)
+  }
+
+  reset(width: number, height: number) {
+    this.x = Math.random() * width
+    this.y = Math.random() * height * 0.5 // only from top half
+    this.length = Math.random() * 80 + 50
+    this.speed = Math.random() * 8 + 5
+    this.angle = Math.PI / 4 // 45° diagonal
+    this.opacity = 1
+    this.active = true
+  }
+
+  update(width: number, height: number) {
+    if (!this.active) return
+
+    this.x += Math.cos(this.angle) * this.speed
+    this.y += Math.sin(this.angle) * this.speed
+    this.opacity -= 0.02
+
+    if (this.x > width || this.y > height || this.opacity <= 0) {
+      this.active = false
+      setTimeout(() => this.reset(width, height), Math.random() * 5000 + 3000) // respawn later
+    }
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    if (!this.active) return
+    const xEnd = this.x - Math.cos(this.angle) * this.length
+    const yEnd = this.y - Math.sin(this.angle) * this.length
+
+    ctx.strokeStyle = `rgba(255,255,255,${this.opacity})`
+    ctx.lineWidth = 2
+    ctx.beginPath()
+    ctx.moveTo(this.x, this.y)
+    ctx.lineTo(xEnd, yEnd)
+    ctx.stroke()
+  }
+}
+
 function animate() {
   if (!ctx || !canvas.value) return
 
@@ -79,13 +130,24 @@ function animate() {
     star.draw(ctx!)
   })
 
+  shootingStars.forEach((shootingStar) => {
+    shootingStar.update(width, height)
+    shootingStar.draw(ctx!)
+  })
+
   animationFrameId = requestAnimationFrame(animate)
 }
 
-function setupStars(width: number, height: number, count = 350) {
+function setup(width: number, height: number) {
   stars.length = 0
-  for (let i = 0; i < count; i++) {
+  shootingStars.length = 0
+
+  for (let i = 0; i < 350; i++) {
     stars.push(new Star(width, height))
+  }
+
+  for (let i = 0; i < 2; i++) {
+    shootingStars.push(new ShootingStar(width, height))
   }
 }
 
@@ -96,15 +158,14 @@ onMounted(() => {
   canvas.value.height = window.innerHeight
   ctx = canvas.value.getContext('2d')
 
-  setupStars(canvas.value.width, canvas.value.height)
-
+  setup(canvas.value.width, canvas.value.height)
   animate()
 
   window.addEventListener('resize', () => {
     if (!canvas.value) return
     canvas.value.width = window.innerWidth
     canvas.value.height = window.innerHeight
-    setupStars(canvas.value.width, canvas.value.height)
+    setup(canvas.value.width, canvas.value.height)
   })
 })
 
