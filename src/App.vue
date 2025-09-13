@@ -1,17 +1,25 @@
 <template>
-  <StarfieldCanvas />
-  <main class="app-content">
-    <router-view />
-  </main>
+  <div id="app">
+    <StarfieldCanvas />
+    <main class="content">
+      <MainTable />
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
 import StarfieldCanvas from './components/starfieldCanvas.vue'
+import MainTable from './components/MainTable.vue'
 </script>
 
 <style>
-.app-content {
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* keeps it above the canvas */
 }
 </style>
