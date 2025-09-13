@@ -17,19 +17,15 @@ class Star {
   size: number
   speed: number
   direction: number
-
   color: string
 
   constructor(width: number, height: number) {
     this.x = Math.random() * width
     this.y = Math.random() * height
-
     this.size = Math.random() * 1.5 + 0.5
     this.speed = Math.random() * 0.3
-
     this.direction = Math.random() * Math.PI * 2
-
-    this.color = this.assignColor(['Pink', 'Purple', 'White'])
+    this.color = this.assignColor(['pink', 'purple', 'white'])
   }
 
   assignColor(colors: string[]): string {
@@ -62,18 +58,26 @@ class Star {
   }
 }
 
-function animate(width: number, height: number) {
+function animate() {
   if (!ctx || !canvas.value) return
 
+  const { width, height } = canvas.value
   ctx.clearRect(0, 0, width, height)
+
   stars.forEach((star) => {
     star.update(width, height)
     star.draw(ctx!)
   })
+
+  animationFrameId = requestAnimationFrame(animate)
 }
 
-// eslint-disable-next-line prefer-const
-animationFrameId = requestAnimationFrame(() => animate(canvas.value!.width, canvas.value!.height))
+function setupStars(width: number, height: number, count = 350) {
+  stars.length = 0
+  for (let i = 0; i < count; i++) {
+    stars.push(new Star(width, height))
+  }
+}
 
 onMounted(() => {
   if (!canvas.value) return
@@ -82,10 +86,16 @@ onMounted(() => {
   canvas.value.height = window.innerHeight
   ctx = canvas.value.getContext('2d')
 
-  stars.length = 0
-  for (let i = 0; i < 350; i++) {
-    stars.push(new Star(canvas.value.width, canvas.value.height))
-  }
+  setupStars(canvas.value.width, canvas.value.height)
+
+  animate()
+
+  window.addEventListener('resize', () => {
+    if (!canvas.value) return
+    canvas.value.width = window.innerWidth
+    canvas.value.height = window.innerHeight
+    setupStars(canvas.value.width, canvas.value.height)
+  })
 })
 
 onUnmounted(() => {
