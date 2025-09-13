@@ -84,10 +84,10 @@ class ShootingStar {
 
   reset(width: number, height: number) {
     this.x = Math.random() * width
-    this.y = Math.random() * height * 0.5 // only from top half
+    this.y = Math.random() * height * 0.5
     this.length = Math.random() * 80 + 50
     this.speed = Math.random() * 8 + 5
-    this.angle = Math.PI / 4 // 45° diagonal
+    this.angle = Math.PI / 4
     this.opacity = 1
     this.active = true
   }
@@ -101,7 +101,7 @@ class ShootingStar {
 
     if (this.x > width || this.y > height || this.opacity <= 0) {
       this.active = false
-      setTimeout(() => this.reset(width, height), Math.random() * 5000 + 3000) // respawn later
+      setTimeout(() => this.reset(width, height), Math.random() * 5000 + 3000)
     }
   }
 
@@ -110,7 +110,7 @@ class ShootingStar {
     const xEnd = this.x - Math.cos(this.angle) * this.length
     const yEnd = this.y - Math.sin(this.angle) * this.length
 
-    ctx.strokeStyle = `rgba(255,255,255,${this.opacity})`
+    ctx.strokeStyle = `rgba(230, 232, 199,${this.opacity})`
     ctx.lineWidth = 2
     ctx.beginPath()
     ctx.moveTo(this.x, this.y)
