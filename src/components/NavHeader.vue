@@ -1,6 +1,6 @@
 <template>
   <header class="nav1" id="top">
-    <h1 style="margin-top: 0; font-size: 42px">
+    <h1 style="margin-top: 0">
       <b id="rainbow" :style="{ color: rainbowColor }">Averyden</b>
     </h1>
 
