@@ -1,7 +1,8 @@
 <template>
   <div class="subText">
     <img :src="project.icon" :alt="`${project.name} icon`" width="25" />
-    <a :href="project.repo" target="_blank">[{{ project.name }}]</a> - {{ project.description }}
+    <a :href="project.repo" target="_blank">[{{ project.name }}]</a> -
+    <span v-html="project.description"></span>
   </div>
 
   <div class="projectPreview">
