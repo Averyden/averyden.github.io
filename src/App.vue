@@ -14,7 +14,7 @@ import MainTable from './components/MainTable.vue'
 
 <style>
 #app {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
 }
 
