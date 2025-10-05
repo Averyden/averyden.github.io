@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import StarfieldCanvas from './components/starfieldCanvas.vue'
-import MainTable from './components/MainTable.vue'
+import MainTable from './components/mainTable.vue'
 </script>
 
 <style>
