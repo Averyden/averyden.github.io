@@ -50,13 +50,13 @@ const projects: Project[] = [
     icon: 'projectAssets/notesu.png',
   },
   {
-    name: 'pasman',
+    name: 'Pasman',
     description: 'a password manager written in Python using the TKinter library.',
     repo: 'https://github.com/Averyden/password-manager',
     icon: 'projectAssets/pasman.png',
   },
   {
-    name: 'acto',
+    name: 'Acto',
     description: 'todo manager written in Python. [Archival project]',
     repo: 'https://github.com/Averyden/Acto',
     icon: 'projectAssets/noIcon.png',
