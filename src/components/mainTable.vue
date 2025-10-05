@@ -24,13 +24,6 @@ import AboutSection from './AboutSection.vue'
 </script>
 
 <style scoped>
-.mainBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
 .divider {
   color: #41ff41;
   margin: 10px 0;
