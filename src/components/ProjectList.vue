@@ -1,5 +1,5 @@
 <template>
-  <div class="scrollableContent">
+  <div class="scrollable-content">
     <ProjectCard v-for="project in projects" :key="project.name" :project="project" />
   </div>
 </template>
@@ -38,7 +38,7 @@ const projects: Project[] = [
     icon: 'projectAssets/notesu.png',
   },
   {
-    name: 'PasMan',
+    name: 'pasman',
     description: 'a password manager written in Python using the TKinter library.',
     repo: 'https://github.com/Averyden/password-manager',
     icon: 'projectAssets/pasman.png',
