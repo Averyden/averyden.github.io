@@ -1,6 +1,17 @@
 <template>
+  <h2 id="infoTitle" class="titleMargin">
+    <b style="color: slateblue; margin-bottom: 10px">Projects:</b>
+  </h2>
   <div class="scrollable-content">
     <ProjectCard v-for="project in projects" :key="project.name" :project="project" />
+    <div class="extraInfo">
+      not all of my projects are listed here.
+      <br />
+      feel free to visit my
+
+      <a href="https://github.com/Averyden" target="_blank" class="inlineLink">[github]</a> to see
+      further projects i am working on (｡･∀･)ﾉﾞ
+    </div>
   </div>
 </template>
 
@@ -25,7 +36,8 @@ const projects: Project[] = [
   },
   {
     name: 'LazGamba',
-    description: 'A side project based on a Twitch community inside joke',
+    description:
+      'a small little side project based on an inside joke from within the <a href="https://twitch.tv/ShyLily" target="_blank">ShyLily</a> twitch community.',
     repo: 'https://github.com/Averyden/lazGamba',
     demo: 'https://averyden.github.io/LazGamba',
     icon: 'projectAssets/lazGambTMPIcon.webp',
