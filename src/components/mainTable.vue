@@ -1,17 +1,19 @@
 <template>
   <table class="mainBox">
-    <tr>
-      <th>
-        <NavHeader />
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <AboutSection />
-        <hr class="divider" />
-        <ProjectList />
-      </th>
-    </tr>
+    <tbody>
+      <tr>
+        <th>
+          <NavHeader />
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <AboutSection />
+          <!-- <hr class="divider" /> -->
+          <ProjectList />
+        </th>
+      </tr>
+    </tbody>
   </table>
 </template>
 
