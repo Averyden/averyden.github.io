@@ -1,0 +1,162 @@
+/* Stylesheet handling for mobile devices
+Both portait mode, and landscape mode */
+
+@media (max-width: 1000px) {
+  html, body {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      overflow: auto;
+      height: auto;
+  }
+
+  .mainBox {
+      flex-direction: column;
+      width: 100vw;
+      height: auto;
+      padding: 10px;
+      overflow-y: visible;
+  }
+
+  table {
+      width: 100%;
+      font-size: 0.9rem;
+      table-layout: fixed;
+  }
+
+  tr, th {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+  th {
+      white-space: normal;
+      word-wrap: break-word;
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #41ff41;
+      margin-bottom: 10px;
+  }
+
+  .nav1 {
+      width: 100%;
+  }
+
+  .scrollable-content {
+      max-height: none;
+      overflow: visible;
+      padding-right: 0;
+  }
+
+  .subText {
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+  }
+
+  .projectPreview img {
+      max-width: 95%;
+      height: auto;
+  }
+
+  h1 {
+      font-size: 1.6rem;
+      word-break: break-word;
+  }
+
+  h2 {
+      font-size: 1.2rem;
+  }
+
+  #rainbow {
+      font-size: inherit;
+  }
+
+  .tryButton {
+      display: block;
+      margin: 12px auto;
+      padding: 6px 12px;
+      border: 1px solid #830057;
+      background: none;
+      text-align: center;
+  }
+
+  .extraInfo {
+      text-align: center;
+      padding: 10px 0;
+  }
+}
+
+/* Landscape orientation */
+
+@media (max-width: 1000px) and (orientation: landscape) {
+  html, body {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      height: auto !important;
+      overflow-y: auto !important;
+  }
+
+  .mainBox {
+      flex-direction: column;
+      height: auto !important;
+      width: 100vw;
+      overflow: visible !important;
+      padding: 10px;
+  }
+
+  table, tr, th {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+  th {
+      padding: 12px;
+      white-space: normal;
+      word-wrap: break-word;
+      margin-bottom: 8px;
+  }
+
+  .scrollable-content {
+      max-height: none !important;
+      overflow: visible !important;
+      padding-right: 0;
+  }
+
+  .projectPreview img {
+      max-width: 80%;
+      height: auto;
+      margin: 15px auto;
+      display: block;
+  }
+
+  .subText {
+      flex-direction: column;
+      text-align: center;
+      gap: 6px;
+  }
+
+  .tryButton {
+      display: block;
+      margin: 12px auto;
+      padding: 6px 12px;
+      width: fit-content;
+      text-align: center;
+  }
+
+  .extraInfo {
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  h1 {
+      font-size: 1.4rem;
+  }
+
+  h2 {
+      font-size: 1.1rem;
+  }
+}
