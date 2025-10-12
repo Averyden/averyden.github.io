@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { Languages } from '@/types/languageEnums'
 
 interface Project {
   name: string
@@ -29,7 +30,7 @@ interface Project {
   repo: string
   demo?: string
   icon: string
-  langs: string[]
+  langs: Languages[]
 }
 
 const props = defineProps<{ project: Project }>()
