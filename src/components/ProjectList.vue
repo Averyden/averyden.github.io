@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import ProjectCard from './ProjectCard.vue'
+import { Languages } from '@/types/languageEnums'
 
 interface Project {
   name: string
@@ -24,6 +25,7 @@ interface Project {
   repo: string
   demo?: string
   icon: string
+  langs: Languages[]
 }
 
 const projects: Project[] = [
@@ -33,6 +35,7 @@ const projects: Project[] = [
     repo: 'https://github.com/Averyden/MetaTune',
     demo: 'https://averyden.github.io/MetaTune',
     icon: '/projectAssets/metaIcon.png',
+    langs: [Languages.VueJS, Languages.Typescript ],
   },
   {
     name: 'LazGamba',
@@ -41,6 +44,7 @@ const projects: Project[] = [
     repo: 'https://github.com/Averyden/lazGamba',
     demo: 'https://averyden.github.io/LazGamba',
     icon: 'projectAssets/lazGambTMPIcon.webp',
+    langs: [Languages.Typescript],
   },
   {
     name: 'Notesu',
@@ -48,18 +52,21 @@ const projects: Project[] = [
     repo: 'https://github.com/Averyden/Notesu',
     demo: 'https://averyden.github.io/Notesu',
     icon: 'projectAssets/notesu.png',
+    langs: [Languages.Javascript],
   },
   {
     name: 'Pasman',
     description: 'a password manager written in Python using the TKinter library.',
     repo: 'https://github.com/Averyden/password-manager',
     icon: 'projectAssets/pasman.png',
+    langs: [Languages.Python],
   },
   {
     name: 'Acto',
     description: 'todo manager written in Python. [Archival project]',
     repo: 'https://github.com/Averyden/Acto',
     icon: 'projectAssets/noIcon.png',
+    langs: [Languages.Python],
   },
 ]
 </script>
