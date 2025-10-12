@@ -5,6 +5,10 @@
     <span v-html="project.description"></span>
   </div>
 
+  <div class="subText">
+    <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${lang}.png`" :alt="`${lang} icon`" class="langIcon"/>
+  </div>
+
   <div class="projectPreview">
     <img v-if="preview" :src="preview.src" />
     <p style="font-style: italic">{{ preview?.caption || '[no current previews to show]' }}</p>
@@ -25,6 +29,7 @@ interface Project {
   repo: string
   demo?: string
   icon: string
+  langs: string[]
 }
 
 const props = defineProps<{ project: Project }>()
@@ -126,6 +131,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.langIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
 .divider {
   color: #438600;
   margin: 10px auto;
