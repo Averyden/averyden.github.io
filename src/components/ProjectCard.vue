@@ -6,7 +6,7 @@
   </div>
 
   <div class="subText">
-    <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${Languages[lang]}.png`" :alt="`${Languages[lang]} icon`" class="langIcon"/>
+    <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${Languages[lang]}.png`" :alt="`${Languages[lang]} icon`" :draggable="false"  :title="`Coded using ${Languages[lang]}`" class="langIcon"/>
   </div>
 
   <div class="projectPreview">
@@ -135,7 +135,8 @@ onMounted(() => {
 .langIcon {
   width: 24px;
   height: 24px;
-  margin-right: 8px;
+  margin-right: 2px;
+  user-select: none;
 }
 
 .divider {
