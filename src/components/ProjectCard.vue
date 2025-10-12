@@ -6,7 +6,7 @@
   </div>
 
   <div class="subText">
-    <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${lang}.png`" :alt="`${lang} icon`" class="langIcon"/>
+    <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${Languages[lang]}.png`" :alt="`${Languages[lang]} icon`" class="langIcon"/>
   </div>
 
   <div class="projectPreview">
