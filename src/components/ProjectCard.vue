@@ -3,16 +3,6 @@
     <img :src="project.icon" :draggable="false" style="user-select: none;" :alt="`${project.name} icon`" width="25" />
     <a :href="project.repo" target="_blank">[{{ project.name }}]</a> -
     <span v-html="project.description"></span>
-      <!-- <div class="langIcons" style="display: flex; gap: 8px;">
-      <img
-        v-for="lang in project.langs"
-        :key="lang"
-        :src="`/languageIcons/${Languages[lang]}.png`"
-        :alt="`${Languages[lang]} icon`"
-        :draggable="false"
-        :title="`Coded using ${Languages[lang]}`"
-        class="langIcon" />
-    </div> -->
   </div>
 
   <div class="subText">
