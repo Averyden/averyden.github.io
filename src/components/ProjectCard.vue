@@ -126,7 +126,7 @@ const preview = ref<Preview | null>(null)
 onMounted(() => {
   const projectPreviews = previews[props.project.name]
   if (projectPreviews?.length) {
-    preview.value = projectPreviews[Math.floor(Math.random() * projectPreviews.length)]
+    preview.value = projectPreviews[Math.floor(Math.random() * projectPreviews.length)]!
   }
 })
 </script>
