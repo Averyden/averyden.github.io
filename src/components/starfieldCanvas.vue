@@ -94,7 +94,7 @@ class ShootingStar {
     this.angle = Math.random() * (maxAngle - minAngle)
 
     const colors = ['230, 232, 199', '150, 200, 255', '255, 200, 200', '200, 255, 200']
-    this.color = colors[Math.floor(Math.random() * colors.length)]
+    this.color = colors[Math.floor(Math.random() * colors.length)]!
 
     this.opacity = 1
     this.active = true
