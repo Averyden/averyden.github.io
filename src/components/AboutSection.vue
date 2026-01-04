@@ -8,7 +8,7 @@
       &gt; My name is Avery
       <br />
       Welcome to my portfolio. <br />
-      currently studying Applied Computer Science (with 11 years of coding experience)<br />
+      currently studying Applied Computer Science (with {{ new Date().getFullYear() - 2014 }} years of coding experience)<br />
       <br />
       &gt; hope youll enjoy lookin around here for now （＾∀＾●）ﾉｼ
       <br />
