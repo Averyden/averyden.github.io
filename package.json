@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.4.2",
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
@@ -16,6 +17,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@averyden/logline": "^0.2.0",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },

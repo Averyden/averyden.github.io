@@ -3,6 +3,7 @@
 
 version: 2
 updates:
+# Bun is handled by the npm ecosystem; it updates package.json and bun.lock
 - package-ecosystem: "npm" # See documentation for possible values
   directory: "/" # Location of package manifests
   schedule:
