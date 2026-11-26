@@ -1,40 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="ll-title">
-  <title id="ll-title">logline — a wooden log with a terminal line wrapped around it</title>
+  <title id="ll-title">logline — terminal prompt with blinking cursor</title>
 
-  <!-- log body -->
-  <rect x="4" y="20" width="46" height="24" rx="12" fill="#7a4a21" />
+  <!-- badge -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#0d0d0d" stroke="#41ff41" stroke-opacity="0.35" stroke-width="2"/>
 
-  <!-- top highlight -->
-  <path d="M10 23 Q27 21.5 46 23" stroke="#9a6434" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7" />
+  <!-- previous log lines, faded into history -->
+  <rect x="12" y="12" width="30" height="4" rx="2" fill="#ffbd2e" opacity="0.55"/>
+  <rect x="12" y="20" width="20" height="4" rx="2" fill="#ff5f56" opacity="0.5"/>
 
-  <!-- bark strokes -->
-  <path d="M12 42.5 h16 M33 42.5 h9" stroke="#5b3416" stroke-width="2" stroke-linecap="round" fill="none" />
+  <!-- the prompt -->
+  <path d="M15 30 L32 44 L15 58" fill="none" stroke="#41ff41" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter"/>
 
-  <!-- end face with growth rings -->
-  <ellipse cx="50" cy="32" rx="9" ry="13" fill="#d9a066" />
-  <ellipse cx="50" cy="32" rx="6" ry="9" fill="none" stroke="#a06a35" stroke-width="1.6" />
-  <ellipse cx="50" cy="32" rx="3" ry="4.5" fill="none" stroke="#a06a35" stroke-width="1.6" />
-  <circle cx="50" cy="32" r="1.3" fill="#a06a35" />
-
-  <!-- the log line: a terminal-green ribbon wrapping the log -->
-  <path d="M9 26 Q27 29 45 26 L45 34 Q27 37 9 34 Z" fill="#41ff41" />
-
-  <!-- text dashes riding the ribbon -->
-  <rect x="13" y="29.2" width="4" height="2.8" rx="1.4" fill="#245c0a" />
-  <rect x="19" y="30.1" width="4" height="2.8" rx="1.4" fill="#245c0a" />
-  <rect x="25" y="30.6" width="4" height="2.8" rx="1.4" fill="#245c0a" />
-  <rect x="31" y="30.6" width="4" height="2.8" rx="1.4" fill="#245c0a" />
-
-  <!-- cursor block, actually blinking -->
+  <!-- cursor, actually blinking -->
   <style>
-    .cursor {
-      animation: ll-blink 1.2s steps(1) infinite;
-    }
-    @keyframes ll-blink {
-      50% {
-        opacity: 0;
-      }
-    }
+    .cursor { animation: ll-blink 1.2s steps(1) infinite; }
+    @keyframes ll-blink { 50% { opacity: 0; } }
   </style>
-  <rect x="38" y="27.9" width="2.8" height="5.4" fill="#245c0a" class="cursor" />
+  <rect x="38" y="50" width="18" height="8" fill="#41ff41" class="cursor"/>
 </svg>
