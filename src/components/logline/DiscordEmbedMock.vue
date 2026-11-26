@@ -13,9 +13,17 @@
         </div>
       </div>
       <div v-if="embed.fields?.length" class="discordFields">
-        <div v-for="field in embed.fields" :key="field.name" class="discordField">
+        <div
+          v-for="field in embed.fields"
+          :key="field.name"
+          class="discordField"
+          :class="{ wide: isCodeBlock(field.value) }"
+        >
           <div class="fieldName">{{ field.name }}</div>
-          <div class="fieldValue">{{ field.value }}</div>
+          <pre v-if="isCodeBlock(field.value)" class="fieldCode">{{
+            codeBlockContent(field.value)
+          }}</pre>
+          <div v-else class="fieldValue">{{ field.value }}</div>
         </div>
       </div>
       <div v-if="embed.footer" class="discordFooter">{{ embed.footer.text }}</div>
@@ -40,6 +48,17 @@ const barColor = computed(() => {
   const color = embed.value.color
   return '#' + color.toString(16).padStart(6, '0')
 })
+
+function isCodeBlock(value: string): boolean {
+  return value.startsWith('```')
+}
+
+function codeBlockContent(value: string): string {
+  // strip the ```json fence markers — render the code, not the markdown
+  return value
+    .replace(/^```[a-z]*\n/, '')
+    .replace(/\n```$/, '')
+}
 </script>
 
 <style scoped>
@@ -118,9 +137,17 @@ const barColor = computed(() => {
 .discordFields {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 16px;
+  gap: 8px 32px;
   margin-top: 8px;
   padding-left: 36px;
+}
+
+.discordField {
+  min-width: 80px;
+}
+
+.discordField.wide {
+  flex-basis: 100%;
 }
 
 .fieldName {
@@ -132,6 +159,19 @@ const barColor = computed(() => {
 .fieldValue {
   font-size: 0.65rem;
   color: #dbdee1;
+  white-space: pre-wrap;
+}
+
+.fieldCode {
+  margin: 2px 0 0;
+  padding: 4px 6px;
+  background: #2b2d31;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.62rem;
+  color: #dbdee1;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .discordFooter {
