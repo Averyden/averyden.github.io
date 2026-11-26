@@ -2,12 +2,15 @@
   <div id="app">
     <StarfieldCanvas />
     <main class="content">
-      <MainTable />
+      <MainTable>
+        <RouterView />
+      </MainTable>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
+import { RouterView } from 'vue-router'
 import StarfieldCanvas from './components/starfieldCanvas.vue'
 import MainTable from './components/mainTable.vue'
 </script>

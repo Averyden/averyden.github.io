@@ -30,6 +30,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: 'Logline',
+    description:
+      'a lightweight TypeScript logging library with structured metadata and optional Discord webhook delivery.',
+    repo: 'https://github.com/Averyden/logline',
+    icon: 'projectAssets/noIcon.png',
+    langs: [Languages.Typescript],
+  },
+  {
     name: 'MetaTune',
     description: 'A Vue.js application allowing users to edit audio metadata',
     repo: 'https://github.com/Averyden/MetaTune',

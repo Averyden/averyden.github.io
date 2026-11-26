@@ -10,7 +10,7 @@
         <th>
           <AboutSection />
           <!-- <hr class="divider" /> -->
-          <ProjectList />
+          <slot />
         </th>
       </tr>
     </tbody>
@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import NavHeader from './NavHeader.vue'
-import ProjectList from './ProjectList.vue'
 import AboutSection from './AboutSection.vue'
 </script>
 

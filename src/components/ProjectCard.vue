@@ -9,20 +9,43 @@
     <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${Languages[lang]}.png`" :alt="`${Languages[lang]} icon`" :draggable="false"  :title="`Coded using ${Languages[lang]}`" class="langIcon"/>
   </div>
 
-  <div class="projectPreview">
+  <div v-if="isLogline" class="projectPreview">
+    <TerminalWindow v-if="loglinePreview?.kind === 'console'" title="logline — sample output" fit>
+      <LogEntryView v-for="(entry, i) in sampleEntries" :key="'sample-' + i" :entry="entry" />
+    </TerminalWindow>
+    <TerminalWindow
+      v-else-if="loglinePreview?.kind === 'discord'"
+      title="logline — DiscordTransport"
+      fit
+    >
+      <DiscordEmbedMock :entry="discordSample" />
+    </TerminalWindow>
+    <p style="font-style: italic">{{ loglinePreview?.caption || '[no current previews to show]' }}</p>
+    <DemoConsole v-if="demoOpen" />
+  </div>
+
+  <div v-else class="projectPreview">
     <img v-if="preview" :src="preview.src" />
     <p style="font-style: italic">{{ preview?.caption || '[no current previews to show]' }}</p>
   </div>
 
-  <a v-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
+  <a v-if="isLogline" href="#" class="tryButton" @click.prevent="demoOpen = !demoOpen">
+    [{{ demoOpen ? 'close the demo' : 'try it out here' }}]
+  </a>
+  <a v-else-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
     [try it out here]
   </a>
   <hr class="divider" />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { Languages } from '@/types/languageEnums'
+import TerminalWindow from '@/components/logline/TerminalWindow.vue'
+import LogEntryView from '@/components/logline/LogEntryView.vue'
+import DiscordEmbedMock from '@/components/logline/DiscordEmbedMock.vue'
+import DemoConsole from '@/components/logline/DemoConsole.vue'
+import { sampleEntries, discordSample } from '@/components/logline/sampleEntries'
 
 interface Project {
   name: string
@@ -34,6 +57,28 @@ interface Project {
 }
 
 const props = defineProps<{ project: Project }>()
+
+const isLogline = computed(() => props.project.name === 'Logline')
+
+interface LoglinePreview {
+  kind: 'console' | 'discord'
+  caption: string
+}
+
+const loglinePreviews: LoglinePreview[] = [
+  {
+    kind: 'console',
+    caption: 'structured console output with tags, metadata and error stacks.',
+  },
+  {
+    kind: 'discord',
+    caption: 'log entries delivered to Discord webhooks as rich embeds.',
+  },
+]
+
+const loglinePreview = ref<LoglinePreview | null>(null)
+
+const demoOpen = ref(false)
 
 interface Preview {
   src: string
@@ -124,6 +169,10 @@ const previews: Record<string, Preview[]> = {
 const preview = ref<Preview | null>(null)
 
 onMounted(() => {
+  if (isLogline.value) {
+    loglinePreview.value = loglinePreviews[Math.floor(Math.random() * loglinePreviews.length)]!
+    return
+  }
   const projectPreviews = previews[props.project.name]
   if (projectPreviews?.length) {
     preview.value = projectPreviews[Math.floor(Math.random() * projectPreviews.length)]!
