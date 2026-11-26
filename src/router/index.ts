@@ -8,10 +8,6 @@ const router = createRouter({
       path: '/',
       component: ProjectList,
     },
-    {
-      path: '/logline',
-      component: () => import('@/components/LoglineView.vue'),
-    },
   ],
 })
 
