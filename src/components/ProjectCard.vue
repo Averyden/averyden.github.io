@@ -10,14 +10,13 @@
   </div>
 
   <div v-if="isLogline" class="projectPreview">
-    <TerminalWindow title="logline — sample output">
+    <TerminalWindow v-if="loglinePreview?.kind === 'console'" title="logline — sample output">
       <LogEntryView v-for="(entry, i) in sampleEntries" :key="'sample-' + i" :entry="entry" />
     </TerminalWindow>
-    <p style="font-style: italic">structured console output with tags, metadata and error stacks.</p>
-    <TerminalWindow title="logline — DiscordTransport">
+    <TerminalWindow v-else-if="loglinePreview?.kind === 'discord'" title="logline — DiscordTransport">
       <DiscordEmbedMock :entry="discordSample" />
     </TerminalWindow>
-    <p style="font-style: italic">the same log entry, delivered to a Discord webhook.</p>
+    <p style="font-style: italic">{{ loglinePreview?.caption || '[no current previews to show]' }}</p>
   </div>
 
   <div v-else class="projectPreview">
@@ -55,6 +54,24 @@ interface Project {
 const props = defineProps<{ project: Project }>()
 
 const isLogline = computed(() => props.project.name === 'Logline')
+
+interface LoglinePreview {
+  kind: 'console' | 'discord'
+  caption: string
+}
+
+const loglinePreviews: LoglinePreview[] = [
+  {
+    kind: 'console',
+    caption: 'structured console output with tags, metadata and error stacks.',
+  },
+  {
+    kind: 'discord',
+    caption: 'the same log entry, delivered to a Discord webhook.',
+  },
+]
+
+const loglinePreview = ref<LoglinePreview | null>(null)
 
 interface Preview {
   src: string
@@ -145,6 +162,10 @@ const previews: Record<string, Preview[]> = {
 const preview = ref<Preview | null>(null)
 
 onMounted(() => {
+  if (isLogline.value) {
+    loglinePreview.value = loglinePreviews[Math.floor(Math.random() * loglinePreviews.length)]!
+    return
+  }
   const projectPreviews = previews[props.project.name]
   if (projectPreviews?.length) {
     preview.value = projectPreviews[Math.floor(Math.random() * projectPreviews.length)]!
