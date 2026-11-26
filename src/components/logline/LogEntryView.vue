@@ -13,8 +13,7 @@
   <template v-if="entry.error">
     <div class="logError">{{ entry.error.name }}: {{ entry.error.message }}</div>
     <div v-for="(line, i) in stackLines" :key="i" class="logStack">{{ line }}</div>
-  </template>
-</template>
+  </template></template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -34,9 +33,17 @@ const formattedMetadata = computed(() =>
     .join(' '),
 )
 
-const stackLines = computed(() =>
-  (props.entry.error?.stack ?? '').split('\n').filter((line) => line.trim()).slice(0, 4),
-)
+const stackLines = computed(() => {
+  const error = props.entry.error
+  if (!error?.stack) return []
+  const lines = error.stack.split('\n').filter((line) => line.trim())
+  // the first stack line usually repeats "Name: message" — skip it if so
+  const header = `${error.name}: ${error.message}`
+  if (lines[0]?.trim() === header || lines[0]?.startsWith(error.name)) {
+    lines.shift()
+  }
+  return lines.slice(0, 4)
+})
 </script>
 
 <style scoped>
