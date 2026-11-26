@@ -67,7 +67,7 @@ const loglinePreviews: LoglinePreview[] = [
   },
   {
     kind: 'discord',
-    caption: 'the same log entry, delivered to a Discord webhook.',
+    caption: 'log entries delivered to Discord webhooks as rich embeds.',
   },
 ]
 
