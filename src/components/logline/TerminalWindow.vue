@@ -6,7 +6,7 @@
       <span class="dot dot-green"></span>
       <span class="terminal-title">{{ title }}</span>
     </div>
-    <div class="terminal-body">
+    <div class="terminal-body" :class="{ fit }">
       <slot />
     </div>
   </div>
@@ -15,6 +15,8 @@
 <script setup lang="ts">
 defineProps<{
   title?: string
+  /** show the full content without an inner scroll area */
+  fit?: boolean
 }>()
 </script>
 
@@ -74,5 +76,10 @@ defineProps<{
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.terminal-body.fit {
+  max-height: none;
+  overflow-y: visible;
 }
 </style>

@@ -10,10 +10,14 @@
   </div>
 
   <div v-if="isLogline" class="projectPreview">
-    <TerminalWindow v-if="loglinePreview?.kind === 'console'" title="logline — sample output">
+    <TerminalWindow v-if="loglinePreview?.kind === 'console'" title="logline — sample output" fit>
       <LogEntryView v-for="(entry, i) in sampleEntries" :key="'sample-' + i" :entry="entry" />
     </TerminalWindow>
-    <TerminalWindow v-else-if="loglinePreview?.kind === 'discord'" title="logline — DiscordTransport">
+    <TerminalWindow
+      v-else-if="loglinePreview?.kind === 'discord'"
+      title="logline — DiscordTransport"
+      fit
+    >
       <DiscordEmbedMock :entry="discordSample" />
     </TerminalWindow>
     <p style="font-style: italic">{{ loglinePreview?.caption || '[no current previews to show]' }}</p>
