@@ -99,6 +99,7 @@ const stackLines = computed(() => {
 
 .logStack {
   padding-left: 22px;
-  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <TerminalWindow title="logline — live demo (bun run dev)">
+  <TerminalWindow title="logline — live demo (bun run dev)" fit>
     <div v-if="!entries.length" class="demoEmpty">[no log entries yet — press a button o(≧∀≦)o]</div>
     <LogEntryView
       v-for="(entry, i) in entries"

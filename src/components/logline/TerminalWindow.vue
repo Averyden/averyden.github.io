@@ -80,6 +80,6 @@ defineProps<{
 
 .terminal-body.fit {
   max-height: none;
-  overflow-y: visible;
+  overflow: visible;
 }
 </style>
