@@ -1,7 +1,9 @@
 <template>
   <div class="logEntry">
-    <span class="logTime">{{ time }}</span>
-    <span class="logLevel" :class="`level-${entry.level}`">{{ entry.level.toUpperCase() }}</span>
+    <span class="logTime">[{{ time }}]</span>
+    <span class="logLevel" :class="`level-${entry.level}`">[{{ entry.level.toUpperCase() }}]</span>
+    <span v-if="entry.service" class="logScope">[{{ entry.service }}]</span>
+    <span v-if="entry.environment" class="logScope">[{{ entry.environment }}]</span>
     <span class="logMessage">{{ entry.message }}</span>
   </div>
   <div v-if="entry.tags?.length" class="logMeta">Tags: {{ entry.tags.join(', ') }}</div>
@@ -40,18 +42,19 @@ const stackLines = computed(() =>
 <style scoped>
 .logEntry {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 
-.logTime {
+.logTime,
+.logScope {
   color: #919191;
   flex-shrink: 0;
 }
 
 .logLevel {
   flex-shrink: 0;
-  min-width: 46px;
 }
 
 .level-debug {
@@ -80,7 +83,7 @@ const stackLines = computed(() =>
 .logError,
 .logStack {
   color: #919191;
-  padding-left: 96px;
+  padding-left: 10px;
 }
 
 .logError {
@@ -88,7 +91,7 @@ const stackLines = computed(() =>
 }
 
 .logStack {
-  padding-left: 108px;
+  padding-left: 22px;
   white-space: pre;
 }
 </style>
