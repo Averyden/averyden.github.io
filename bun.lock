@@ -5,6 +5,7 @@
     "": {
       "name": "portfolio",
       "dependencies": {
+        "@averyden/logline": "^0.2.0",
         "vue": "^3.5.29",
         "vue-router": "^5.0.3",
       },
@@ -28,6 +29,8 @@
     },
   },
   "packages": {
+    "@averyden/logline": ["@averyden/logline@0.2.0", "", {}, "sha512-uNZdBrOCvo88tKifZZvyVBCGaiIj0VtfABTOZYJSWAnbt0llkktlHpYnhcbWi5Q4+tRmu+YxC7fjzrP6BU9arg=="],
+
     "@babel/code-frame": ["@babel/code-frame@7.29.7", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.29.7", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="],
 
     "@babel/compat-data": ["@babel/compat-data@7.29.7", "", {}, "sha512-locTkQyKvwIEgBzVrn8693ebc97F2U8ZHjbXwDXJ5Fn2TCpNwTlKcaKLkdHop5c/icOFE7qt7Q9JC5hnKNa6Gg=="],
