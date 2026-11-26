@@ -1,8 +1,8 @@
 <template>
-  <section class="nav1" id="info">
-    <h2 class="smallMargin" id="infoTitle">
-      <b style="color: slateblue">Logline:</b>
-    </h2>
+  <h2 id="infoTitle" class="titleMargin">
+    <b style="color: slateblue">Logline:</b>
+  </h2>
+  <div class="scrollable-content loglineContent">
     <div class="subText tagline">lightweight structured logging for TypeScript o(_^▽^_)┛</div>
 
     <BadgeRow />
@@ -52,7 +52,7 @@
     </p>
 
     <hr class="divider" />
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -99,6 +99,13 @@ const logger = createLogger({
 </script>
 
 <style scoped>
+/* th sets white-space: nowrap — the page content must wrap instead,
+   or long lines force the whole table wider than the viewport */
+.loglineContent {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
 .tagline {
   margin-bottom: 5px;
 }
@@ -110,7 +117,8 @@ const logger = createLogger({
 
 .divider {
   color: #41ff41;
-  margin: 10px 0;
+  margin: 10px auto;
+  width: 20%;
 }
 
 .bestViewed {
