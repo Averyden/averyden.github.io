@@ -17,7 +17,7 @@
       <DiscordEmbedMock :entry="discordSample" />
     </TerminalWindow>
     <p style="font-style: italic">{{ loglinePreview?.caption || '[no current previews to show]' }}</p>
-    <DemoConsole />
+    <DemoConsole v-if="demoOpen" />
   </div>
 
   <div v-else class="projectPreview">
@@ -25,7 +25,10 @@
     <p style="font-style: italic">{{ preview?.caption || '[no current previews to show]' }}</p>
   </div>
 
-  <a v-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
+  <button v-if="isLogline" class="tryButton" type="button" @click="demoOpen = !demoOpen">
+    [{{ demoOpen ? 'close the demo' : 'try it out here' }}]
+  </button>
+  <a v-else-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
     [try it out here]
   </a>
   <hr class="divider" />
@@ -70,6 +73,8 @@ const loglinePreviews: LoglinePreview[] = [
 ]
 
 const loglinePreview = ref<LoglinePreview | null>(null)
+
+const demoOpen = ref(false)
 
 interface Preview {
   src: string
