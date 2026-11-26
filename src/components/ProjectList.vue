@@ -34,7 +34,6 @@ const projects: Project[] = [
     description:
       'a lightweight TypeScript logging library with structured metadata and optional Discord webhook delivery.',
     repo: 'https://github.com/Averyden/logline',
-    demo: '/logline',
     icon: 'projectAssets/noIcon.png',
     langs: [Languages.Typescript],
   },

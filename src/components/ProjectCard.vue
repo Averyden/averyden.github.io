@@ -17,6 +17,7 @@
       <DiscordEmbedMock :entry="discordSample" />
     </TerminalWindow>
     <p style="font-style: italic">{{ loglinePreview?.caption || '[no current previews to show]' }}</p>
+    <DemoConsole />
   </div>
 
   <div v-else class="projectPreview">
@@ -24,10 +25,7 @@
     <p style="font-style: italic">{{ preview?.caption || '[no current previews to show]' }}</p>
   </div>
 
-  <RouterLink v-if="project.demo?.startsWith('/')" :to="project.demo" class="tryButton">
-    [try it out here]
-  </RouterLink>
-  <a v-else-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
+  <a v-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
     [try it out here]
   </a>
   <hr class="divider" />
@@ -35,11 +33,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { RouterLink } from 'vue-router'
 import { Languages } from '@/types/languageEnums'
 import TerminalWindow from '@/components/logline/TerminalWindow.vue'
 import LogEntryView from '@/components/logline/LogEntryView.vue'
 import DiscordEmbedMock from '@/components/logline/DiscordEmbedMock.vue'
+import DemoConsole from '@/components/logline/DemoConsole.vue'
 import { sampleEntries, discordSample } from '@/components/logline/sampleEntries'
 
 interface Project {
