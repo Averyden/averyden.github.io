@@ -22,10 +22,7 @@
     </select>
   </div>
 
-  <p class="demoNote">
-    this demo runs the real @averyden/logline library in your browser — the entries above come
-    through a custom Transport, and your devtools console gets the rest (｡･∀･)ﾉﾞ
-  </p>
+  <p class="demoNote">the real @averyden/logline library, running in your browser (｡･∀･)ﾉﾞ</p>
 </template>
 
 <script setup lang="ts">
@@ -174,6 +171,8 @@ function clear(): void {
 }
 
 .demoNote {
+  max-width: 500px;
+  margin: 10px auto;
   color: #919191;
   font-size: 0.7rem;
   font-style: italic;
