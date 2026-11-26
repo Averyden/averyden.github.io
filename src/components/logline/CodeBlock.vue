@@ -71,7 +71,8 @@ async function copy(): Promise<void> {
 pre {
   margin: 0;
   padding: 8px 10px;
-  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
   font-family: monospace;
   font-size: 0.72rem;
   line-height: 1.5;
