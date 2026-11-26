@@ -25,7 +25,7 @@
     <p style="font-style: italic">{{ preview?.caption || '[no current previews to show]' }}</p>
   </div>
 
-  <a v-if="isLogline" class="tryButton" @click.prevent="demoOpen = !demoOpen">
+  <a v-if="isLogline" href="#" class="tryButton" @click.prevent="demoOpen = !demoOpen">
     [{{ demoOpen ? 'close the demo' : 'try it out here' }}]
   </a>
   <a v-else-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
