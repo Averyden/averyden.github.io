@@ -9,20 +9,39 @@
     <img v-for="lang in project.langs" :key="lang" :src="`/languageIcons/${Languages[lang]}.png`" :alt="`${Languages[lang]} icon`" :draggable="false"  :title="`Coded using ${Languages[lang]}`" class="langIcon"/>
   </div>
 
-  <div class="projectPreview">
+  <div v-if="isLogline" class="projectPreview">
+    <TerminalWindow title="logline — sample output">
+      <LogEntryView v-for="(entry, i) in sampleEntries" :key="'sample-' + i" :entry="entry" />
+    </TerminalWindow>
+    <p style="font-style: italic">structured console output with tags, metadata and error stacks.</p>
+    <TerminalWindow title="logline — DiscordTransport">
+      <DiscordEmbedMock :entry="discordSample" />
+    </TerminalWindow>
+    <p style="font-style: italic">the same log entry, delivered to a Discord webhook.</p>
+  </div>
+
+  <div v-else class="projectPreview">
     <img v-if="preview" :src="preview.src" />
     <p style="font-style: italic">{{ preview?.caption || '[no current previews to show]' }}</p>
   </div>
 
-  <a v-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
+  <RouterLink v-if="project.demo?.startsWith('/')" :to="project.demo" class="tryButton">
+    [try it out here]
+  </RouterLink>
+  <a v-else-if="project.demo" :href="project.demo" target="_blank" class="tryButton">
     [try it out here]
   </a>
   <hr class="divider" />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import { Languages } from '@/types/languageEnums'
+import TerminalWindow from '@/components/logline/TerminalWindow.vue'
+import LogEntryView from '@/components/logline/LogEntryView.vue'
+import DiscordEmbedMock from '@/components/logline/DiscordEmbedMock.vue'
+import { sampleEntries, discordSample } from '@/components/logline/sampleEntries'
 
 interface Project {
   name: string
@@ -34,6 +53,8 @@ interface Project {
 }
 
 const props = defineProps<{ project: Project }>()
+
+const isLogline = computed(() => props.project.name === 'Logline')
 
 interface Preview {
   src: string

@@ -14,17 +14,11 @@
       </b>
       <span id="eepy" :style="{ color: 'slateblue' }">{{ eepyText }}</span>
     </p>
-
-    <nav class="pageNav">
-      <RouterLink to="/" class="navLink">[home]</RouterLink>
-      <RouterLink to="/logline" class="navLink">[logline]</RouterLink>
-    </nav>
   </header>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { RouterLink } from 'vue-router'
 
 const rainbowColor = ref<string>(getRandomColor())
 const eepyText = ref<string>('(～﹃～)~zZ')
@@ -65,20 +59,5 @@ function getRandomColor(): string {
 .smallMargin {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.pageNav {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 8px;
-}
-
-.navLink {
-  color: #00ffc8;
-}
-
-.navLink.router-link-active {
-  color: #ff0095;
 }
 </style>
